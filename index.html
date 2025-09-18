@@ -8,26 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/8c6f35f06b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-  <!-- Barra de contato -->
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div class="topbar-left">
-        <i class="fas fa-phone icon"></i> 
-        <a href="tel:+558899999999">(88) 99999-9999</a>
-        <i class="fas fa-envelope icon"></i>
-        <a href="mailto:contato@apaerussas.org">contato@apaerussas.org</a>
-      </div>
-      <div class="topbar-right">
-        <a class="btn-donate" href="#doar">DOE AGORA</a>
-      </div>
-    </div>
-  </div>
-
   <!-- Header -->
-  <header class="header">
+<header class="header">
     <div class="container nav">
       <div class="brand">
         <img src="assets/logo.png" alt="APAE Russas" class="logo">
@@ -39,13 +25,16 @@
         <ul>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#mapa">Mapa</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
+      <a class="btn-donate" href="#doar"><i class="fas fa-heart"></i> DOE AGORA</a>
       <button class="hamburger">☰</button>
     </div>
   </header>
+  
 
   <!-- Hero -->
   <section class="hero">
@@ -74,22 +63,48 @@
     </div>
   </section>
 
+  <!-- MVV -->
+  <section class="mvvs">
+    <div class="container">
+      <div class="mvv-grid">
+        <div class="mvv">
+          <i class="fas fa-bullseye fa-2x"></i>
+          <h3>Missão</h3>
+          <p>Garantir apoio e promover a inclusão e autonomia das pessoas com deficiência.</p>
+        </div>
+        <div class="mvv">
+          <i class="fas fa-eye fa-2x"></i>
+          <h3>Visão</h3>
+          <p>Ser referência regional em cuidado e inclusão de qualidade.</p>
+        </div>
+        <div class="mvv">
+          <i class="fas fa-heart fa-2x"></i>
+          <h3>Valores</h3>
+          <p>Respeito, empatia, ética e compromisso social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Projetos -->
   <section id="projetos" class="projetos">
     <div class="container">
       <h2 class="section-title">Nossos Projetos</h2>
-      <div class="grid">
+      <div class="cards">
         <div class="card">
-          <h3>Educação Inclusiva</h3>
-          <p>Oferecemos apoio escolar especializado, visando estimular a autonomia e o aprendizado contínuo.</p>
+          <img src="https://picsum.photos/400/250?random=2" alt="Projeto 1">
+          <h4>Educação Inclusiva</h4>
+          <p>Apoio escolar e oficinas pedagógicas adaptadas.</p>
         </div>
         <div class="card">
-          <h3>Atendimento de Saúde</h3>
-          <p>Equipe multidisciplinar com fisioterapia, psicologia, fonoaudiologia e assistência social.</p>
+          <img src="https://picsum.photos/400/250?random=3" alt="Projeto 2">
+          <h4>Atendimento Terapêutico</h4>
+          <p>Fonoaudiologia, fisioterapia e psicologia.</p>
         </div>
         <div class="card">
-          <h3>Capacitação Profissional</h3>
-          <p>Promovemos oficinas e treinamentos que possibilitam inserção no mercado de trabalho.</p>
+          <img src="https://picsum.photos/400/250?random=4" alt="Projeto 3">
+          <h4>Capacitação e Trabalho</h4>
+          <p>Oficinas de vida e inclusão ao mercado de trabalho.</p>
         </div>
       </div>
     </div>
@@ -99,7 +114,7 @@
   <section id="instagram" class="instagram">
     <div class="container">
       <h2 class="section-title">Nosso Instagram</h2>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CxK.../" data-instgrm-version="14" style="margin: auto; max-width:540px; width:100%;"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/apaerussas/" data-instgrm-version="14" style="margin:auto;max-width:540px;width:100%;"></blockquote>
       <script async src="//www.instagram.com/embed.js"></script>
     </div>
   </section>
@@ -108,23 +123,58 @@
   <section id="mapa" class="mapa">
     <div class="container">
       <h2 class="section-title">Onde Estamos</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.196...RussasCE" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.850973065269!2d-37.9751!3d-4.9397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b9fcd22d79c7fb%3A0x1e6b39d9d3e449f4!2sRussas%20-%20CE!5e0!3m2!1spt-BR!2sbr!4v1693333333333" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Doar -->
+  <section id="doar" class="doar">
+    <div class="container">
+      <div class="doar-box">
+        <h2>Ajude-nos a transformar vidas</h2>
+        <p>Sua doação sustenta nossos atendimentos e projetos. Qualquer contribuição faz diferença.</p>
+        <div class="pix-box">
+          <img src="assets/qrcode-pix.png" alt="QR Code PIX" class="qrcode">
+          <p><strong>Chave PIX:</strong> contato@apaerussas.org</p>
+        </div>
+        <div class="doar-actions">
+          <a href="#" class="btn primary">Doar Agora</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contato -->
   <section id="contato" class="contato">
-    <div class="container">
-      <h2 class="section-title">Contato</h2>
-      <p>Entre em contato conosco para saber mais sobre nossos projetos e como apoiar.</p>
-      <p><i class="fas fa-phone"></i> (88) 99999-9999</p>
-      <p><i class="fas fa-envelope"></i> contato@apaerussas.org</p>
+    <div class="container contato-grid">
+      <div class="contato-info">
+        <h2>Fale Conosco</h2>
+        <p>Entre em contato pelas nossas redes sociais:</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="#"><i class="fab fa-whatsapp fa-2x"></i></a>
+        </div>
+        <ul class="contact-list">
+          <li><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - Russas - CE</li>
+          <li><i class="fas fa-phone"></i> (88) 99999-9999</li>
+          <li><i class="fas fa-envelope"></i> contato@apaerussas.org</li>
+        </ul>
+      </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>© 2025 APAE Russas - Todos os direitos reservados.</p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="APAE Russas">
+        <p>© 2025 APAE Russas — Todos os direitos reservados</p>
+      </div>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
   </footer>
 
