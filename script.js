@@ -20,26 +20,77 @@ window.addEventListener("scroll", function() {
 // Seleciona todos os links do menu
 const navLinks = document.querySelectorAll('.main-nav a');
 
+// Função para atualizar link ativo conforme o scroll
+function setActiveLink() {
+  let index = sections.length;
+
+  while(--index && window.scrollY + 80 < sections[index].offsetTop) {} // 80px pra compensar header
+
+  navLinks.forEach(link => link.classList.remove('active'));
+  navLinks[index].classList.add('active');
+}
+
+// Pega todas as seções com id (sobre, projetos, etc)
+const sections = document.querySelectorAll("section[id]");
+
+// Atualiza ativo no scroll
+setActiveLink();
+window.addEventListener('scroll', setActiveLink);
+
+// Smooth scroll nos cliques
 navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
 
-        // Remove classe active de todos os links
-        navLinks.forEach(l => l.classList.remove('active'));
-
-        // Adiciona classe active no link clicado
-        this.classList.add('active');
-
-        // Pega o destino do href (id da section)
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        if(targetSection) {
-            // Rola suavemente até a section
-            window.scrollTo({
-                top: targetSection.offsetTop - 70, // ajusta para o header fixo
-                behavior: 'smooth'
-            });
-        }
-    });
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - 70,
+        behavior: 'smooth'
+      });
+    }
+  });
 });
+
+// Smooth scroll nos botões do hero
+const heroCtas = document.querySelectorAll('.hero-ctas a');
+
+heroCtas.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - 70,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+let scrollAmount = 0;
+
+function autoScroll() {
+  scrollAmount += 0.5; // mais lento
+  if(scrollAmount > carousel.scrollWidth - carousel.clientWidth) {
+    scrollAmount = 0;
+  }
+  carousel.scrollLeft = scrollAmount;
+  requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
+
+
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.main-nav');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('open');      // abre/fecha menu
+  hamburger.classList.toggle('open');    // muda ícone
+});
+
+

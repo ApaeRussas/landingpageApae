@@ -51,18 +51,18 @@ body {
 
 /* Header */
 .header {
-  background: transparent; /* transparente inicialmente */
-  position: fixed; /* fixo no topo */
+  background: transparent; 
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
   transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
-  padding: 4px 0; /* diminuiu o padding vertical */
+  padding: 4px 0; 
 }
 
 /* Header após scroll */
 .header.scrolled {
-  background-color: rgba(255, 255, 255, 1); /* branco completo */
+  background-color: rgba(255, 255, 255, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,7 +76,7 @@ body {
 
 /* Links do header */
 .main-nav a {
-  color: #fff; /* menu branco sobre hero */
+  color: #fff;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s, transform 0.3s;
@@ -87,18 +87,18 @@ body {
 
 /* Hover quando header transparente */
 .main-nav a:hover {
-  color: #0b7a3a; /* verde escuro */
+  color: #0b7a3a;
   transform: translateY(-2px);
 }
 
 /* Header scrolled */
 .header.scrolled .main-nav a {
-  color: var(--text); /* links escuros quando header branco */
+  color: var(--text);
 }
 
 /* Hover quando header branco */
 .header.scrolled .main-nav a:hover {
-  color: #0b7a3a; /* verde escuro mesmo sobre fundo branco */
+  color: #0b7a3a;
   transform: translateY(-2px);
 }
 
@@ -127,20 +127,37 @@ body {
   color: #fff; /* mantém branco no botão */
 }
 
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.3s;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
 /* Ajuste responsivo */
 @media (max-width: 900px) {
-  .main-nav {
-    display: none;
-  }
-  .main-nav.active {
-    display: block;
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-  }
+    .main-nav {
+        display: none; /* escondido por padrão */
+      }
+      
+      .main-nav.open {
+        display: block;
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        width: 200px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      }
   .main-nav ul {
     flex-direction: column;
     gap: 12px;
@@ -180,15 +197,25 @@ body {
   border: none;
 }
 
+.hamburger.open::before {
+  content: "✕";
+}
+.hamburger.open::after {
+  content: "";
+}
+
 /* Hero */
 .hero {
-  background: url("https://picsum.photos/1600/900?random=9") no-repeat center
-    center/cover;
-  background-attachment: fixed;
-  color: #fff;
-  padding: 175px 0;
-  position: relative;
-}
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("assets/bannerBackground.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #fff;
+    padding: 175px 0;
+    position: relative;
+  }
+  
+  
 .hero::before {
   content: "";
   position: absolute;
@@ -289,6 +316,48 @@ body {
   margin-bottom: 8px;
 }
 
+.mvv i {
+  color: var(--green); /* muda ícones para verde escuro */
+  margin-bottom: 12px;
+}
+
+/* SOBRE */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sobre-text p {
+  font-size: 18px; /* aumentei o texto */
+  line-height: 1.8;
+}
+
+.sobre-img img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* MVV */
+.mvv p {
+  font-size: 18px; /* aumentei o texto */
+  line-height: 1.7;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .sobre-img img {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
 /* Cards Projetos */
 .cards {
   display: grid;
@@ -310,6 +379,127 @@ body {
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+/*Instagram*/
+.instagram {
+  padding: 80px 20px;
+  text-align: center;
+  background: #fafafa;
+}
+
+.instagram h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.instagram p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Grid padrão (caso queira usar em vez do carrossel) */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.insta-grid a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.insta-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.insta-grid a:hover img {
+  transform: scale(1.1);
+}
+
+/* Carrossel */
+.insta-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.insta-item {
+  flex: 0 0 auto;
+  width: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.insta-item img {
+  width: 100%;
+  display: block;
+}
+
+.insta-item:hover {
+  transform: scale(1.05);
+}
+
+.insta-carousel::-webkit-scrollbar {
+  display: none; /* esconde a barra de rolagem */
+}
+
+/* Botão seguir Instagram */
+.btn-insta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px; /* mantive padding maior */
+  background: #e1306c; /* cor do Instagram */
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-insta:hover {
+  background: #c42d5e;
+}
+
+/*Mapa*/
+.mapa {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.mapa .section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: var(--text);
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* proporção 16:9 */
+}
+
+.map-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Doar */
@@ -340,26 +530,83 @@ body {
 }
 
 /* Contato */
-.contato-info h2 {
-  color: var(--green);
-  margin-bottom: 16px;
+.contato {
+  padding: 80px 20px;
+  background: #fafafa;
+  text-align: center;
 }
+
+.contato-info h2 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: var(--green); /* título verde */
+}
+
+.contato-info p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #fff; /* ícone branco */
+  font-size: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Cores das redes */
+.social-icons a.facebook {
+  background: #3b5998;
+}
+.social-icons a.instagram {
+  background: #e1306c;
+}
+.social-icons a.whatsapp {
+  background: #25d366;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Lista de contato */
 .contact-list {
   list-style: none;
-  margin-top: 12px;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: left;
   line-height: 1.8;
 }
-.contact-list i {
-  color: var(--green);
-  margin-right: 8px;
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
 }
-.social-icons a {
-  margin-right: 15px;
-  color: var(--green);
-  transition: 0.3s;
-}
-.social-icons a:hover {
-  color: var(--pink);
+
+.contact-list li i {
+  margin-right: 10px;
+  color: var(--green); /* destaque dos ícones */
+  min-width: 20px;
+  text-align: center;
 }
 
 /* Footer */
@@ -400,6 +647,15 @@ body {
   }
   .main-nav {
     display: none;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.3s ease-in-out;
   }
   .main-nav.active {
     display: block;
