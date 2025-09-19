@@ -137,55 +137,57 @@ scrollCarousel();
 
 
 
+/* ========= ROTATION (mouse) usando CSS vars - não sobrescreve scale/translate ======== */
 const cards = document.querySelectorAll('.atividades-item');
 
 cards.forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; // posição do mouse dentro do card
+    const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     const rotateX = ((y - centerY) / centerY) * 5; // intensidade
     const rotateY = ((x - centerX) / centerX) * -5;
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    // atualizar variáveis CSS (não tocar no transform completo)
+    card.style.setProperty('--rx', `${rotateX}deg`);
+    card.style.setProperty('--ry', `${rotateY}deg`);
   });
 
   card.addEventListener('mouseleave', () => {
-    card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    // zera rotação ao sair; scale/ty continuam controlados por classes (auto-hover/hover/reveal)
+    card.style.setProperty('--rx', `0deg`);
+    card.style.setProperty('--ry', `0deg`);
   });
 });
 
-
-/* ==========================================
-   SCROLL REVEAL ATIVIDADES
-========================================== */
-document.addEventListener("scroll", () => {
-    document.querySelectorAll(".atividades-item").forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight - 50) {
-        el.classList.add("reveal");
-      }
-    });
+/* ========= SCROLL REVEAL para atividades (apenas adiciona classe) ======== */
+function revealAtividades() {
+  document.querySelectorAll(".atividades-item").forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+      el.classList.add("reveal");
+    }
   });
-  
-/* ========================================== 
-     AUTO-HIGHLIGHT ATIVIDADES + z-index dinâmico
-========================================== */
+}
+window.addEventListener('scroll', revealAtividades);
+window.addEventListener('load', revealAtividades);
+
+/* ========= AUTO-HIGHLIGHT ATIVIDADES (apenas alterna a classe, sem mexer em zIndex) ======== */
 let i = 0;
 const itens = document.querySelectorAll(".atividades-item");
 
 setInterval(() => {
-  itens.forEach((e, index) => {
-    e.classList.remove("auto-hover");
-    e.style.zIndex = 5 - index; // cria hierarquia natural
-  });
-  
-  const current = itens[i];
-  current.classList.add("auto-hover");
-  current.style.zIndex = 10; // item ativo vai pra frente
-
+  if (!itens.length) return;
+  itens.forEach(el => el.classList.remove('auto-hover'));
+  itens[i].classList.add('auto-hover');
   i = (i + 1) % itens.length;
 }, 3000);
+
+/* OBS: não estamos mais setando inline zIndex pelo JS; a prioridade visual é controlada pelo CSS:
+   - nth-child() define linhas
+   - .auto-hover define destaque
+   - :hover tem z-index maior e sempre vence */
+
 
 /* Mantém hover do mouse funcional mesmo com auto-hover */
 itens.forEach((card) => {
