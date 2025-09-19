@@ -10,8 +10,16 @@ window.addEventListener("scroll", function() {
 
     const opacity = Math.min(scroll / maxScroll, 1);
     header.style.transition = 'background-color 0.3s, box-shadow 0.3s';
-    header.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
-    header.style.boxShadow = `0 4px 12px rgba(0,0,0,${0.1 * opacity})`;
+
+    if(document.body.classList.contains('dark')) {
+        // modo dark: começa transparente, depois fica quase preto
+        header.style.backgroundColor = `rgba(0, 0, 0, ${opacity * 0.9})`;
+        header.style.boxShadow = `0 4px 12px rgba(0,0,0,${0.5 * opacity})`;
+    } else {
+        // modo claro
+        header.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+        header.style.boxShadow = `0 4px 12px rgba(0,0,0,${0.1 * opacity})`;
+    }
 
     if(scroll > 50) {
         header.classList.add("scrolled");
@@ -19,6 +27,7 @@ window.addEventListener("scroll", function() {
         header.classList.remove("scrolled");
     }
 });
+
 
 
 /* ==========================================
@@ -146,4 +155,81 @@ cards.forEach(card => {
     card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
   });
 });
+
+
+/* ==========================================
+   SCROLL REVEAL ATIVIDADES
+========================================== */
+document.addEventListener("scroll", () => {
+    document.querySelectorAll(".atividades-item").forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+        el.classList.add("reveal");
+      }
+    });
+  });
+  
+/* ========================================== 
+     AUTO-HIGHLIGHT ATIVIDADES + z-index dinâmico
+========================================== */
+let i = 0;
+const itens = document.querySelectorAll(".atividades-item");
+
+setInterval(() => {
+  itens.forEach((e, index) => {
+    e.classList.remove("auto-hover");
+    e.style.zIndex = 5 - index; // cria hierarquia natural
+  });
+  
+  const current = itens[i];
+  current.classList.add("auto-hover");
+  current.style.zIndex = 10; // item ativo vai pra frente
+
+  i = (i + 1) % itens.length;
+}, 3000);
+
+/* Mantém hover do mouse funcional mesmo com auto-hover */
+itens.forEach((card) => {
+  card.addEventListener('mouseenter', () => {
+    card.style.zIndex = 20; // hover sempre no topo
+  });
+  card.addEventListener('mouseleave', () => {
+    if (!card.classList.contains('auto-hover')) {
+      card.style.zIndex = 5 - Array.from(itens).indexOf(card); 
+    } else {
+      card.style.zIndex = 10; // auto-hover continua ativo
+    }
+  });
+});
+
+  
+
+
+  /* ==========================================
+   DARK MODE TOGGLE
+========================================== */
+const toggleBtn = document.getElementById("toggle-theme");
+
+// Detecta preferência do sistema (primeira visita)
+if (!localStorage.getItem("theme")) {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.body.classList.add("dark");
+    toggleBtn.textContent = "☀️";
+  }
+} else if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  toggleBtn.textContent = "☀️";
+}
+
+// Alternar manualmente
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    toggleBtn.textContent = "☀️";
+  } else {
+    localStorage.setItem("theme", "light");
+    toggleBtn.textContent = "🌙";
+  }
+});
+
 

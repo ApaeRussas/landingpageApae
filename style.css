@@ -15,6 +15,238 @@
   .bg-gray {
     background: #f4f4f4;
   }
+
+  /* DARK MODE */
+  .theme-btn {
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 6px; 
+    border-radius: 50%;
+    transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    color: #333; 
+    background: rgba(0,0,0,0.05); 
+  }
+  
+  .theme-btn:hover {
+    transform: rotate(15deg) scale(1.2);
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.1);
+  }
+  
+  body.dark .theme-btn {
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+  }
+  
+  body.dark .theme-btn:hover {
+    transform: rotate(15deg) scale(1.2);
+    box-shadow: 0 0 12px rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.15);
+  }
+  
+
+  
+  
+  /* ===== DARK MODE GLOBAL ===== */
+  body.dark {
+    background: linear-gradient(135deg, #0d1117, #161b22);
+    color: #f0f0f0;
+  }
+  
+  /* Header */
+  body.dark .header {
+    background-color: rgba(0,0,0,0); 
+    transition: background-color 0.3s, box-shadow 0.3s, padding 0.3s;
+    box-shadow: none;
+  }
+  
+  body.dark .header.scrolled {
+    background-color: rgba(0,0,0,0.9); 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  
+  body.dark .main-nav a {
+    color: #ddd;
+  }
+  body.dark .main-nav a.active {
+    color: #60a5fa;
+  }
+  body.dark .btn-donate {
+    background: linear-gradient(90deg,#4ade80,#60a5fa);
+    color: #fff;
+  }
+  
+  /* Hero */
+  body.dark .hero {
+    background: linear-gradient(135deg, rgba(17,24,39,0.85), rgba(31,41,55,0.85)),
+                url("assets/bannerBackground.jpg") no-repeat center center/cover;
+                background-attachment: fixed;
+                color: #fff;
+                padding: 175px 0;
+                position: relative;
+  }
+  
+  
+  /* Seções */
+  body.dark section {
+    background: transparent;
+    color: #e5e7eb;
+  }
+  body.dark .section-title {
+    background: linear-gradient(90deg, #4ade80, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Cards Atividades */
+  /* ================================
+   SEÇÃO ATIVIDADES - PADRÃO
+================================ */
+.atividades {
+    padding: 100px 20px;
+    text-align: center;
+    background: #fafafa;
+  }
+  
+  .atividades h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .atividades p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 50px;
+  }
+  
+  .atividades-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: -120px;
+    position: relative;
+    flex-wrap: nowrap;
+  }
+  
+  .atividades-item {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 450px;
+    text-align: center;
+    transition: transform 0.5s, z-index 0.5s, box-shadow 0.5s;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transform: scale(1) translateY(0);
+    z-index: 1;
+  }
+  
+  .atividades-item img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 200px;
+  }
+  
+  .atividades-item p {
+    padding: 16px 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  
+  /* Z-index para sobreposição */
+  .atividades-item:nth-child(1) { z-index: 1; }
+  .atividades-item:nth-child(2) { z-index: 3; }
+  .atividades-item:nth-child(3) { z-index: 5; }
+  .atividades-item:nth-child(4) { z-index: 3; }
+  .atividades-item:nth-child(5) { z-index: 1; }
+  
+  /* Hover normal */
+  .atividades-item:hover {
+    transform: scale(1.12) translateY(-20px);
+    z-index: 10 !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  }
+  
+  /* Auto-highlight */
+  .atividades-item.auto-hover {
+    transform: scale(1.12) translateY(-20px);
+    z-index: 10 !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+  }
+  
+  /* Botão atividades */
+  .btn-atividades {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, #e1306c, #f77737, #e1306c);
+    background-size: 200% 100%;
+    transition: all 0.5s ease;
+    animation: pulse 2s infinite alternate;
+  }
+  
+  .btn-atividades:hover {
+    background-position: 100% 0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 10px rgba(255,70,120,0.5); }
+    100% { box-shadow: 0 0 25px rgba(255,120,180,0.8); }
+  }
+  
+  /* ================================
+     DARK MODE
+  ================================ */
+  body.dark .atividades {
+    background: linear-gradient(135deg, #1a1f29, #0d1117);
+  }
+  
+  body.dark .atividades-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 25px rgba(255,255,255,0.1);
+  }
+  
+  body.dark .atividades-item:hover,
+  body.dark .atividades-item.auto-hover {
+    transform: scale(1.12) translateY(-20px);
+    z-index: 10 !important;
+    box-shadow: 0 18px 45px rgba(255,255,255,0.25);
+  }
+  
+  /* Botão dark mode */
+  body.dark .btn-atividades {
+    background: linear-gradient(90deg, #4ade80, #60a5fa);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(96,165,250,0.6);
+    animation: pulse-dark 2s infinite alternate;
+  }
+  
+  @keyframes pulse-dark {
+    0% { box-shadow: 0 0 10px rgba(96,165,250,0.5); }
+    100% { box-shadow: 0 0 25px rgba(96,165,250,0.8); }
+  }
+  
+  
+  /* Footer */
+  body.dark .footer {
+    background: #0d1117;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  body.dark .footer p,
+  body.dark .footer a {
+    color: #bbb;
+  }
+  
   
   /* Reset / Base */
   * {
@@ -399,92 +631,106 @@
       margin-right: auto;
     }
   
-  /* Atividades */
-.atividades {
-  padding: 100px 20px;
-  text-align: center;
-  background: #fafafa;
-}
-
-.atividades h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.atividades p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 50px;
-}
-
-.atividades-grid {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: -120px; /* aumenta a sobreposição */
-  position: relative;
-  flex-wrap: nowrap;
-}
-
-.atividades-item {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  width: 450px;  /* cards maiores */
-  text-align: center;
-  transition: transform 0.5s, z-index 0.5s, box-shadow 0.5s;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-  cursor: pointer;
-}
-
-/* Imagem dentro do card */
-.atividades-item img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-/* Texto abaixo da imagem */
-.atividades-item p {
-  padding: 16px 0;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-/* Sobreposição inicial */
-.atividades-item:nth-child(1) { z-index: 1; transform: scale(0.85) translateY(40px); }
-.atividades-item:nth-child(2) { z-index: 3; transform: scale(0.95) translateY(20px); }
-.atividades-item:nth-child(3) { z-index: 5; transform: scale(1) translateY(0); }
-.atividades-item:nth-child(4) { z-index: 3; transform: scale(0.95) translateY(20px); }
-.atividades-item:nth-child(5) { z-index: 1; transform: scale(0.85) translateY(40px); }
-
-/* Ao passar o mouse, o card vai para frente */
-.atividades-item:hover {
-  transform: scale(1.08) translateY(-20px);
-  z-index: 10 !important;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-}
-
-/* Botão atividades */
-.btn-atividades {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 16px 32px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  color: #fff;
-  background: linear-gradient(90deg, #e1306c, #f77737, #e1306c);
-  background-size: 200% 100%;
-  transition: all 0.5s ease;
-}
-
-.btn-atividades:hover {
-  background-position: 100% 0;
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-}
-
+ /* Atividades */
+ .atividades {
+    background: linear-gradient(135deg, #f0f4f7 0%, #fafafa 100%);
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .atividades h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .atividades p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 50px;
+  }
+  
+  .atividades-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .atividades-item {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 280px;
+    transition: all 0.8s ease, transform 0.3s ease;
+    opacity: 0; /* inicia invisível (scroll reveal) */
+    transform: translateY(50px);
+    cursor: pointer;
+    z-index: initial;
+  }
+  .atividades-item.reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .atividades-item.auto-hover {
+    transform: scale(1.08) translateY(-20px);
+    z-index: 10 !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+  
+  /* Imagem dentro do card */
+  .atividades-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .atividades-item:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Texto abaixo da imagem */
+  .atividades-item p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Z-index para sobreposição */
+  .atividades-item:nth-child(1) { z-index: 1; }
+  .atividades-item:nth-child(2) { z-index: 3; }
+  .atividades-item:nth-child(3) { z-index: 5; }
+  .atividades-item:nth-child(4) { z-index: 3; }
+  .atividades-item:nth-child(5) { z-index: 1; }
+  
+  /* Ao passar o mouse, o card vai para frente com leve zoom */
+  .atividades-item:hover {
+    transform: scale(1.12) translateY(-20px);
+    z-index: 20 !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  }
+  
+  /* Botão atividades */
+  .btn-atividades {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(90deg, #e1306c, #f77737, #e1306c);
+    background-size: 200% 100%;
+    transition: all 0.5s ease;
+  }
+  
+  .btn-atividades:hover {
+    background-position: 100% 0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  }
   
   
   /* Mapa */
@@ -883,6 +1129,19 @@
       background: #fff;
       padding: 20px;
       border-radius: 8px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .atividades-grid {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+    }
+    .atividades-item {
+      min-width: 80%;
+      flex: 0 0 auto;
     }
   }
   
