@@ -16,6 +16,13 @@
   background: #f4f4f4;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* ===== DARK MODE BUTTON ===== */
 .theme-btn {
   font-size: 1.6rem;
