@@ -4,22 +4,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>APAE Russas</title>
+
+    <!-- CSS seguro -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts do Google com crossorigin -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-pVt3l+0TjF+u9z7G3qfP1yRw9Ciw5EwtJ+GvhlS68NUEZejHh9Dkaq6Ez4p0pRoM7TZ2Al8g4NkeqghfFsK1ZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
+
+    <!-- Content Security Policy básica -->
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; 
+               img-src 'self' https://picsum.photos https://www.google.com; 
+               script-src 'self'; 
+               style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; 
+               font-src 'self' https://fonts.gstatic.com; 
+               frame-src https://www.google.com;">
   </head>
+
   <body>
     <!-- Header -->
     <header class="header">
@@ -39,9 +54,7 @@
             <li><a href="#contato">Contato</a></li>
           </ul>
         </nav>
-        <a class="btn-donate" href="#doar"
-          ><i class="fas fa-heart"></i> DOE AGORA</a
-        >
+        <a class="btn-donate" href="#doar"><i class="fas fa-heart"></i> DOE AGORA</a>
         <button class="hamburger">☰</button>
         <button id="toggle-theme" class="theme-btn">🌙</button>
       </div>
@@ -259,14 +272,14 @@
 
         <div class="map-card">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15800!2d-37.9751!3d-4.9397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b9fcd22d79c7fb%3A0x1e6b39d9d3e449f4!2sTv.+Joaquim+Félix%2C+340+-+Centro%2C+Russas+-+CE%2C+62900-000!5e0!3m2!1spt-BR!2sbr!4v1693333333333"
-            width="100%"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15800!2d-37.9751!3d-4.9397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b9fcd22d79c7fb%3A0x1e6b39d9d3e449f4!2sTv.+Joaquim+Félix%2C+340+-+Centro%2C+Russas+-+CE%2C+62900-000!5e0!3m2!1spt-BR!2sbr!4v1693333333333"
+      width="100%"
+      height="450"
+      style="border: 0"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
         </div>
 
         <div class="address-box">
@@ -375,6 +388,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
