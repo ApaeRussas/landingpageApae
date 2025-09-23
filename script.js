@@ -19,21 +19,42 @@ document.addEventListener("DOMContentLoaded", () => {
     return window.innerWidth <= 768;
   }
 
-  // Corrigido: agora não força cor inline nos links
+  // ✅ NOVA VERSÃO do applyNavColors
   function applyNavColors() {
-    if (!navMenu) return;
+    if (!navMenu || !header) return;
     const isOpen = navMenu.classList.contains("open");
     const isDark = document.body.classList.contains("dark");
+    const scroll = window.scrollY;
 
-    // remove cor inline dos links
-    navLinks.forEach((link) => link.style.removeProperty("color"));
-
-    // fundo do menu aberto
     if (isOpen) {
       navMenu.style.backgroundColor = isDark ? "#111" : "#fff";
     } else {
       navMenu.style.removeProperty("background-color");
     }
+
+    if (!isOpen && scroll === 0) {
+      header.style.backgroundColor = "transparent";
+      header.style.boxShadow = "none";
+      if (hamburger) hamburger.style.color = isDark ? "#fff" : "#fff";
+    } else {
+      if (isDark) {
+        header.style.backgroundColor = "rgba(0,0,0,0.9)";
+        header.style.boxShadow = "0 4px 12px rgba(0,0,0,0.5)";
+        if (hamburger) hamburger.style.color = "#fff";
+      } else {
+        header.style.backgroundColor = "rgba(255,255,255,0.9)";
+        header.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+        if (hamburger) hamburger.style.color = "#000";
+      }
+    }
+
+    navLinks.forEach((link) => {
+      if (isDark) {
+        link.style.color = isOpen || scroll > 50 ? "#fff" : "#fff";
+      } else {
+        link.style.color = isOpen || scroll > 50 ? "#000" : "#fff";
+      }
+    });
   }
 
   /* ==========================================
@@ -68,12 +89,31 @@ document.addEventListener("DOMContentLoaded", () => {
   function setActiveLink() {
     if (!sections || !navLinks) return;
     let index = sections.length;
+
     while (--index && window.scrollY + 80 < sections[index].offsetTop) {}
-    navLinks.forEach((link) => link.classList.remove("active"));
-    if (navLinks[index]) navLinks[index].classList.add("active");
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+
+      if (document.body.classList.contains("dark")) {
+        link.style.color = navMenu.classList.contains("open") || window.scrollY > 50 ? "#fff" : "#fff";
+      } else {
+        link.style.color = navMenu.classList.contains("open") || window.scrollY > 50 ? "#000" : "#fff";
+      }
+    });
+
+    if (navLinks[index]) {
+      navLinks[index].classList.add("active");
+
+      if (document.body.classList.contains("dark")) {
+        navLinks[index].style.color = "#0b7a3a";
+      } else {
+        navLinks[index].style.color = "#13a551";
+      }
+    }
   }
-  setActiveLink();
   window.addEventListener("scroll", setActiveLink);
+  setActiveLink(); // chamada inicial
 
   /* ==========================================
      SMOOTH SCROLL
@@ -92,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // Fechar menu mobile após clique em link
       if (navMenu && navMenu.classList.contains("open")) {
         navMenu.classList.remove("open");
         hamburger.classList.remove("open");
@@ -124,14 +163,17 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", animateSobre);
 
   /* ==========================================
-     HAMBURGER MENU
+     ✅ NOVO HANDLER DO HAMBURGER
   =========================================== */
   if (hamburger) {
     hamburger.addEventListener("click", () => {
       if (!navMenu) return;
-      navMenu.classList.toggle("open");
-      hamburger.classList.toggle("open");
-      hamburger.textContent = hamburger.classList.contains("open") ? "✖" : "☰";
+
+      const isOpen = navMenu.classList.toggle("open");
+      hamburger.classList.toggle("open", isOpen);
+
+      hamburger.textContent = isOpen ? "✖" : "☰";
+
       applyNavColors();
       updateDarkTogglePosition();
     });
@@ -258,6 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleBtn.textContent = "🌙";
       }
       applyNavColors();
+      onScrollHeader();
     });
   }
 
