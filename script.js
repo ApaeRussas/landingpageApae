@@ -1,5 +1,5 @@
 (() => {
-  'use strict';
+  "use strict";
 
   document.addEventListener("DOMContentLoaded", () => {
     /* ==========================================
@@ -17,7 +17,6 @@
     const carousel = document.querySelector(".eventos-carousel");
     const cards = document.querySelectorAll(".atividades-item");
 
-    /* =========== helpers =========== */
     const isMobile = () => window.innerWidth <= 768;
 
     const safeSetColor = (el, color) => {
@@ -33,14 +32,12 @@
       const isDark = document.body.classList.contains("dark");
       const scroll = window.scrollY;
 
-      // fundo do menu
       if (isOpen) {
         navMenu.style.backgroundColor = isDark ? "#111" : "#fff";
       } else {
         navMenu.style.removeProperty("background-color");
       }
 
-      // fundo do header
       if (!isOpen && scroll === 0) {
         header.style.backgroundColor = "transparent";
         header.style.boxShadow = "none";
@@ -105,15 +102,28 @@
       navLinks.forEach((link) => {
         link.classList.remove("active");
         if (document.body.classList.contains("dark")) {
-          safeSetColor(link, navMenu.classList.contains("open") || window.scrollY > 50 ? "#fff" : "#fff");
+          safeSetColor(
+            link,
+            navMenu.classList.contains("open") || window.scrollY > 50
+              ? "#fff"
+              : "#fff"
+          );
         } else {
-          safeSetColor(link, navMenu.classList.contains("open") || window.scrollY > 50 ? "#000" : "#fff");
+          safeSetColor(
+            link,
+            navMenu.classList.contains("open") || window.scrollY > 50
+              ? "#000"
+              : "#fff"
+          );
         }
       });
 
       if (navLinks[index]) {
         navLinks[index].classList.add("active");
-        safeSetColor(navLinks[index], document.body.classList.contains("dark") ? "#0b7a3a" : "#13a551");
+        safeSetColor(
+          navLinks[index],
+          document.body.classList.contains("dark") ? "#0b7a3a" : "#13a551"
+        );
       }
     };
     window.addEventListener("scroll", setActiveLink);
@@ -148,7 +158,9 @@
        ANIMAÇÃO SEÇÕES
     ===========================================*/
     const animateSobre = () => {
-      const elements = document.querySelectorAll(".sobre-text p, .sobre-img img, .mvv");
+      const elements = document.querySelectorAll(
+        ".sobre-text p, .sobre-img img, .mvv"
+      );
       const windowHeight = window.innerHeight;
       elements.forEach((el) => {
         const elementTop = el.getBoundingClientRect().top;
@@ -253,7 +265,9 @@
             card.style.zIndex = 20;
           });
           card.addEventListener("mouseleave", () => {
-            card.style.zIndex = card.classList.contains("auto-hover") ? 10 : 5 - idx;
+            card.style.zIndex = card.classList.contains("auto-hover")
+              ? 10
+              : 5 - idx;
           });
         });
       } else {
@@ -290,40 +304,48 @@
     if (toggleBtn) {
       toggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark");
-        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-        toggleBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("dark") ? "dark" : "light"
+        );
+        toggleBtn.textContent = document.body.classList.contains("dark")
+          ? "☀️"
+          : "🌙";
         applyNavColors();
         onScrollHeader();
         setActiveLink();
       });
     }
 
-    /* ==========================================
-       MOVE DARK MODE BUTTON
-    ===========================================*/
-    const updateDarkTogglePosition = () => {
-      if (!toggleBtn || !navMenu) return;
-      if (window.innerWidth <= 768) {
-        if (!navMenu.contains(toggleBtn)) {
-          navMenu.appendChild(toggleBtn);
-          toggleBtn.style.fontSize = "1.2rem";
-        }
-      } else {
-        if (header && !header.contains(toggleBtn)) {
-          header.appendChild(toggleBtn);
-          toggleBtn.style.fontSize = "1.5rem";
-        }
-      }
-      applyNavColors();
-    };
-    window.addEventListener("resize", updateDarkTogglePosition);
-    window.addEventListener("load", updateDarkTogglePosition);
-    updateDarkTogglePosition();
+/* ==========================================
+   MOVE DARK MODE BUTTON
+===========================================*/
+const themeWrapper = document.querySelector(".theme-toggle-wrapper");
 
-    // chamadas iniciais
-    onScrollHeader();
-    setActiveLink();
-    revealAtividades();
-    animateSobre();
+const updateDarkTogglePosition = () => {
+  if (!toggleBtn || !navMenu || !themeWrapper) return;
+
+  if (window.innerWidth <= 768) {
+    if (!navMenu.contains(toggleBtn)) {
+      navMenu.appendChild(toggleBtn);
+      toggleBtn.style.fontSize = "1.2rem";
+    }
+  } else {
+    if (!themeWrapper.contains(toggleBtn)) {
+      themeWrapper.appendChild(toggleBtn);
+      toggleBtn.style.fontSize = "1.5rem";
+    }
+  }
+  applyNavColors();
+};
+
+window.addEventListener("resize", updateDarkTogglePosition);
+window.addEventListener("load", updateDarkTogglePosition);
+updateDarkTogglePosition();
+
+onScrollHeader();
+setActiveLink();
+revealAtividades();
+animateSobre();
   });
 })();

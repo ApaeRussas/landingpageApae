@@ -4,17 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>APAE Russas</title>
-
-    <!-- CSS seguro -->
     <link rel="stylesheet" href="style.css" />
-
-    <!-- Fonts do Google com crossorigin -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- Font Awesome -->
     <link
@@ -27,12 +25,14 @@
 
     <!-- Content Security Policy básica -->
     <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self'; 
-               img-src 'self' https://picsum.photos https://www.google.com; 
-               script-src 'self'; 
-               style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; 
-               font-src 'self' https://fonts.gstatic.com; 
-               frame-src https://www.google.com;">
+  content="default-src 'self';
+           img-src 'self' data: https://picsum.photos https://www.google.com;
+           script-src 'self' https://cdnjs.cloudflare.com;
+           style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+           font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
+           frame-src https://www.google.com;">
+
+
   </head>
 
   <body>
@@ -45,6 +45,7 @@
             <h1>APAE Russas</h1>
           </div>
         </div>
+    
         <nav class="main-nav">
           <ul>
             <li><a href="#sobre">Sobre</a></li>
@@ -54,11 +55,17 @@
             <li><a href="#contato">Contato</a></li>
           </ul>
         </nav>
+    
+        <div class="theme-toggle-wrapper">
+          <button id="toggle-theme" class="theme-btn">🌙</button>
+        </div>
+    
         <a class="btn-donate" href="#doar"><i class="fas fa-heart"></i> DOE AGORA</a>
+    
         <button class="hamburger">☰</button>
-        <button id="toggle-theme" class="theme-btn">🌙</button>
       </div>
     </header>
+    
 
     <!-- Hero -->
     <section class="hero">

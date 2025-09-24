@@ -60,6 +60,13 @@ body.dark .theme-btn:hover {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+
 /* ===== Dark Mode no Menu Hamburger ===== */
 .menu-hamburger {
   position: relative;
@@ -984,11 +991,20 @@ body.dark .address-box p {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
-
   max-width: 400px;
-  margin: 0 auto;
   width: 100%;
+  flex: 1 1 300px;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .doar-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
 
 .pix-card:hover {
   transform: translateY(-10px);
@@ -1071,15 +1087,11 @@ body.dark .address-box p {
   font-size: 1.5rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.social-icons a.facebook {
-  background: #3b5998;
-}
+
 .social-icons a.instagram {
   background: #e1306c;
 }
-.social-icons a.whatsapp {
-  background: #25d366;
-}
+
 .social-icons a:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -1194,6 +1206,94 @@ body.dark .address-box p {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.main-nav.open a {
+  color: #000;
+}
+.main-nav.open a:hover,
+.main-nav.open a:focus {
+  color: var(--green);
+}
+.main-nav.open a.active {
+  color: var(--green-light);
+  font-weight: 700;
+}
+
+body.dark .main-nav.open a {
+  color: #fff;
+}
+body.dark .main-nav.open a:hover,
+body.dark .main-nav.open a:focus {
+  color: var(--green);
+}
+body.dark .main-nav.open a.active {
+  color: var(--green-light);
+  font-weight: 700;
+}
+.hamburger.open {
+  color: #000 !important;
+}
+body.dark .hamburger.open {
+  color: #fff !important;
+}
+.header.open .main-nav a {
+  color: #000 !important;
+}
+body.dark .header.open .main-nav a {
+  color: #fff !important;
+}
+.main-nav.open {
+  z-index: 1000;
+}
+
+.main-nav a {
+  position: relative;
+}
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--green-light);
+  transition: width 0.3s ease;
+}
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+.instagram {
+  text-decoration: none;
+}
+
+/* ================================
+   LINK ATIVO - DESTAQUE
+================================= */
+.main-nav a.active {
+  color: #13a551 !important;
+  font-weight: bold;
+  position: relative;
+}
+
+.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: #13a551;
+  border-radius: 2px;
+}
+
+body.dark .main-nav a.active {
+  color: #0b7a3a !important;
+}
+body.dark .main-nav a.active::after {
+  background-color: #0b7a3a;
+}
+
+
 /* -----------------------------
    RESPONSIVIDADE APRIMORADA
 ------------------------------ */
@@ -1205,6 +1305,11 @@ body.dark .address-box p {
   }
   .cards {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  /* Doar */
+  .doar-content {
     gap: 30px;
   }
 }
@@ -1223,6 +1328,10 @@ body.dark .address-box p {
     display: block;
   }
 
+  /* Doar */
+  .doar-content {
+    gap: 30px;
+  }
   .pix-card {
     padding: 25px;
     max-width: 350px;
@@ -1289,7 +1398,6 @@ body.dark .address-box p {
 }
 
 /* ===== Celulares grandes (até 768px) ===== */
-
 @media (max-width: 768px) {
   .atividades-grid {
     display: flex;
@@ -1369,16 +1477,32 @@ body.dark .address-box p {
   .main-nav.open #toggle-theme {
     order: -1;
   }
+
+  /* Doar */
+  .doar-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
   .pix-card {
     padding: 20px;
     max-width: 320px;
   }
-
   .pix-card .qrcode {
     width: 150px;
   }
+
   .header.open nav a {
     color: #000 !important;
+  }
+
+  .nav-menu a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+
+  .nav-menu a::after {
+    display: none !important;
   }
 }
 
@@ -1395,52 +1519,14 @@ body.dark .address-box p {
   .atividades-item {
     min-width: 90%;
   }
+
+  /* Doar */
   .pix-card {
     padding: 16px;
     border-radius: 16px;
     max-width: 90%;
   }
-
   .pix-card .qrcode {
     width: 130px;
   }
-}
-
-.main-nav.open a {
-  color: #000;
-}
-.main-nav.open a:hover,
-.main-nav.open a:focus {
-  color: var(--green);
-}
-.main-nav.open a.active {
-  color: var(--green-light);
-  font-weight: 700;
-}
-
-body.dark .main-nav.open a {
-  color: #fff;
-}
-body.dark .main-nav.open a:hover,
-body.dark .main-nav.open a:focus {
-  color: var(--green);
-}
-body.dark .main-nav.open a.active {
-  color: var(--green-light);
-  font-weight: 700;
-}
-.hamburger.open {
-  color: #000 !important;
-}
-body.dark .hamburger.open {
-  color: #fff !important;
-}
-.header.open .main-nav a {
-  color: #000 !important;
-}
-body.dark .header.open .main-nav a {
-  color: #fff !important;
-}
-.main-nav.open {
-  z-index: 1000;
 }
