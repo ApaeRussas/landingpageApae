@@ -54,7 +54,6 @@
         }
       }
 
-      // cores dos links
       navLinks.forEach((link) => {
         if (isDark) {
           safeSetColor(link, isOpen || scroll > 50 ? "#fff" : "#fff");

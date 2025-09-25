@@ -1294,15 +1294,28 @@ body.dark .main-nav a.active::after {
 }
 
 
-/* -----------------------------
+/* ----------------------------- 
    RESPONSIVIDADE APRIMORADA
 ------------------------------ */
 
 /* ===== Tablets grandes (até 1200px) ===== */
 @media (max-width: 1200px) {
+  .hero {
+    padding: 140px 30px;
+  }
+
   .hero-inner {
     gap: 40px;
   }
+
+  .hero-left h2 {
+    font-size: 32px;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+  }
+
   .cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
@@ -1328,6 +1341,38 @@ body.dark .main-nav a.active::after {
     display: block;
   }
 
+  /* Hero */
+  .hero {
+    padding: 120px 20px;
+    background-attachment: scroll; /* melhora performance */
+    text-align: center;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .hero-left h2 {
+    font-size: 28px;
+  }
+
+  .hero-left p {
+    font-size: 15px;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .stats {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
   /* Doar */
   .doar-content {
     gap: 30px;
@@ -1335,6 +1380,17 @@ body.dark .main-nav a.active::after {
   .pix-card {
     padding: 25px;
     max-width: 350px;
+  }
+  .pix-card p {
+    font-size: 0.95rem;
+    margin: 8px 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+    text-align: left;
+  }
+  .pix-card strong {
+    color: var(--green-light);
   }
 
   .main-nav.open,
@@ -1353,12 +1409,6 @@ body.dark .main-nav a.active::after {
   .main-nav ul {
     flex-direction: column;
     gap: 15px;
-  }
-
-  .hero-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
   }
 
   .mvv-grid,
@@ -1399,6 +1449,32 @@ body.dark .main-nav a.active::after {
 
 /* ===== Celulares grandes (até 768px) ===== */
 @media (max-width: 768px) {
+  /* Hero */
+  .hero {
+    padding: 100px 15px;
+  }
+
+  .hero-left h2 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
   .atividades-grid {
     display: flex;
     flex-wrap: nowrap;
@@ -1488,6 +1564,10 @@ body.dark .main-nav a.active::after {
     padding: 20px;
     max-width: 320px;
   }
+  .pix-card p {
+    font-size: 1rem;
+    text-align: center;
+  }
   .pix-card .qrcode {
     width: 150px;
   }
@@ -1508,6 +1588,29 @@ body.dark .main-nav a.active::after {
 
 /* ===== Celulares pequenos (até 480px) ===== */
 @media (max-width: 480px) {
+  /* Hero */
+  .hero {
+    padding: 80px 10px;
+  }
+
+  .hero-left h2 {
+    font-size: 20px;
+  }
+
+  .hero-left p {
+    font-size: 13px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .stats {
+    gap: 12px;
+  }
+
   .hero-title {
     font-size: 1.8rem;
   }
@@ -1526,7 +1629,41 @@ body.dark .main-nav a.active::after {
     border-radius: 16px;
     max-width: 90%;
   }
+  .pix-card p {
+    font-size: 1.1rem;
+    text-align: center;
+    word-break: break-word;
+  }
   .pix-card .qrcode {
     width: 130px;
+  }
+}
+/* Ajuste para a barra de navegação em telas muito pequenas */
+@media (max-width: 375px) {
+  .nav {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .hamburger {
+    display: block !important;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #111;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .main-nav.open {
+    display: flex;
   }
 }
