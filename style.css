@@ -65,6 +65,144 @@ body.dark .theme-btn:hover {
   align-items: center;
   margin-right: 10px;
 }
+/* ===== CONTAINER ===== */
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  position: relative;
+}
+
+/* ===== SWITCH CONTAINER ===== */
+.theme-switch {
+  width: 80px;
+  height: 40px;
+  border-radius: 50px;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.7s ease, box-shadow 0.6s ease;
+  background: radial-gradient(circle at 25% 50%, #ffffff 0%, #87CEEB 100%);
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* ===== CLOUDS ===== */
+.cloud {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Nuvens maiores e animadas */
+.cloud1 {
+  width: 120px;
+  height: 60px;
+  top: 5%;
+  left: -130px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 100'><g fill='%23ffffff'><path d='M40 60c-12 0-20-8-20-16s8-16 20-16c4-12 20-12 24 0 8-4 16 0 20 8 8 0 12 8 12 16s-8 16-20 16H40z'/></g></svg>");
+  animation: moveClouds 25s linear infinite;
+}
+.cloud2 {
+  width: 115px;
+  height: 55px;
+  top: 25%;
+  left: -120px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'><g fill='%23ffffff'><path d='M30 50c-10 0-16-6-16-12s6-12 16-12c3-9 16-9 20 0 6-3 12 0 15 6 6 0 8 6 8 12s-6 12-16 12H30z'/></g></svg>");
+  animation: moveClouds 28s linear infinite reverse;
+}
+.cloud3 {
+  width: 110px;
+  height: 50px;
+  top: 45%;
+  left: -125px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 90'><g fill='%23ffffff'><path d='M35 55c-10 0-16-7-16-14s6-14 16-14c3-10 16-10 20 0 6-3 12 0 15 7 6 0 8 7 8 14s-6 14-16 14H35z'/></g></svg>");
+  animation: moveClouds 30s linear infinite;
+}
+
+@keyframes moveClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200%); }
+}
+
+/* ===== STARS ===== */
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Camadas de estrelas piscando alternadamente */
+.layer1, .layer2, .layer3 {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><circle cx='5' cy='5' r='0.8' fill='%23fff'/><circle cx='15' cy='20' r='1' fill='%23fff'/><circle cx='25' cy='10' r='0.6' fill='%23fff'/><circle cx='35' cy='30' r='1' fill='%23fff'/><circle cx='45' cy='15' r='0.7' fill='%23fff'/><circle cx='50' cy='40' r='0.8' fill='%23fff'/></svg>") repeat;
+  background-size: 30px 30px;
+  filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #fff);
+}
+
+/* Animações alternadas */
+.layer1 { animation: twinkle 3s infinite alternate; animation-delay: 0s; }
+.layer2 { animation: twinkle 3s infinite alternate; animation-delay: 1s; }
+.layer3 { animation: twinkle 3s infinite alternate; animation-delay: 2s; }
+
+@keyframes twinkle {
+  0%   { opacity: 0.3; filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff); }
+  50%  { opacity: 1;   filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff); }
+  100% { opacity: 0.3; filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff); }
+}
+
+/* Visibilidade apenas à noite */
+body.dark .stars { opacity: 1; }
+body:not(.dark) .stars { opacity: 0; animation: none; }
+
+/* ===== BACKGROUNDS DIA / NOITE ===== */
+body:not(.dark) .theme-switch {
+  background: radial-gradient(circle at 25% 50%, #ffffff 0%, #87CEEB 100%);
+}
+body.dark .theme-switch {
+  background: radial-gradient(circle at 75% 50%, #2e3a59 0%, #0a0f2c 100%);
+  box-shadow: inset 0 0 12px rgba(255,255,255,0.02), 0 8px 20px rgba(0,0,0,0.6);
+}
+body.dark .cloud { opacity: 0; }
+
+/* ===== SLIDER (Sol ou Lua) ===== */
+.switch-slider {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 3;
+  transition: left 0.4s cubic-bezier(.2,.9,.3,1), background 0.4s ease, box-shadow 0.2s ease;
+  background: radial-gradient(circle at 30% 30%, #FFD93B 0%, #F6C33B 90%);
+  box-shadow: 0 0 5px rgba(255,200,0,0.5), 0 3px 6px rgba(0,0,0,0.2);
+  filter: drop-shadow(0 0 4px rgba(255,240,150,0.6));
+}
+
+/* Lua com crateras pequenas e visíveis */
+body.dark .switch-slider {
+  left: calc(100% - 32px);
+  background:
+    radial-gradient(circle at 30% 30%, #f0f0f0 0%, #ddd 100%),
+    radial-gradient(circle at 15% 25%, #ccc 2%, transparent 0),
+    radial-gradient(circle at 60% 20%, #bbb 2%, transparent 0),
+    radial-gradient(circle at 40% 60%, #aaa 1.5%, transparent 0),
+    radial-gradient(circle at 70% 50%, #ccc 1.8%, transparent 0),
+    radial-gradient(circle at 50% 45%, #bbb 1.5%, transparent 0),
+    radial-gradient(circle at 25% 70%, #aaa 1.2%, transparent 0);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset -2px -2px 3px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.35);
+}
+
+
 
 
 /* ===== Dark Mode no Menu Hamburger ===== */
