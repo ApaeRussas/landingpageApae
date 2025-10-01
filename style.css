@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap');
+
 :root {
   --green: #0b7a3a;
   --pink: #ff5f95;
@@ -20,7 +22,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 /* ====== DARK MODE BUTTON ====== */
@@ -268,13 +270,19 @@ body.dark .main-nav a {
   color: #ddd;
 }
 body.dark .main-nav a.active {
-  color: var(--green);
+ background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 body.dark .header.scrolled .main-nav a {
   color: #fff;
 }
 body.dark .header.scrolled .main-nav a.active {
-  color: var(--green);
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 body.dark .btn-donate {
   background: linear-gradient(90deg, #4ade80, #60a5fa);
@@ -302,6 +310,7 @@ body.dark section {
 }
 body.dark .section-title {
   background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -400,36 +409,6 @@ body.dark .contact-list li {
   transform: scale(1.12) translateY(-20px);
   z-index: 10 !important;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-}
-
-/* Botão atividades */
-.btn-atividades {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 16px 32px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  color: #fff;
-  background: linear-gradient(90deg, #e1306c, #f77737, #e1306c);
-  background-size: 200% 100%;
-  transition: all 0.5s ease;
-  animation: pulse 2s infinite alternate;
-}
-
-.btn-atividades:hover {
-  background-position: 100% 0;
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 10px rgba(255, 70, 120, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 25px rgba(255, 120, 180, 0.8);
-  }
 }
 
 /* ================================
@@ -628,6 +607,14 @@ body.dark .header.scrolled .hamburger {
   color: var(--green);
   line-height: 1.2;
 }
+body.dark .brand-text h1{
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
+  line-height: 1.2;
+}
 .brand-text span {
   font-weight: 800;
 }
@@ -662,10 +649,16 @@ body.dark .header.scrolled .hamburger {
   color: #fff;
   margin-bottom: 16px;
   font-weight: 800;
+  font-family: 'Montserrat', sans-serif; /* Fonte estilosa p/ título */
+  letter-spacing: -0.5px; /* deixa mais compacto e moderno */
 }
+
 .hero-left p {
   margin-bottom: 20px;
   font-size: 18px;
+  font-family: 'Poppins', sans-serif; /* Texto leve e legível */
+  color: #f0f0f0;
+  line-height: 1.6; /* melhora leitura */
 }
 .hero-ctas {
   display: flex;
@@ -683,10 +676,20 @@ body.dark .header.scrolled .hamburger {
   background: var(--green-light);
   color: #fff;
 }
+body.dark .btn.primary{
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+}
 .btn.ghost {
   border: 2px solid var(--green-light);
   color: var(--green-light);
   background: transparent;
+}
+body.dark .btn.ghost{
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-color: linear-gradient(90deg, #4ade80, #60a5fa);
 }
 .stats {
   display: flex;
@@ -697,6 +700,12 @@ body.dark .header.scrolled .hamburger {
   font-size: 26px;
   color: var(--green-light);
   display: block;
+}
+body.dark .stat strong{
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Seções gerais */
@@ -803,11 +812,23 @@ body.dark .mvv {
   margin-bottom: 12px;
 }
 
+body.dark .mvv i {
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .mvv h3 {
   margin-bottom: 12px;
   color: var(--green);
 }
 
+body.dark .mvv h3 {
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .mvv p {
   font-size: 1rem;
   line-height: 1.6;
@@ -898,7 +919,7 @@ body.dark .mvv p {
 
 .atividades p {
   font-size: 1.2rem;
-  color: #555;
+  color: #555555;
   margin-bottom: 50px;
 }
 
@@ -1036,6 +1057,12 @@ body.dark .mvv p {
   margin-bottom: 12px;
   color: var(--green);
   font-weight: 700;
+}
+body.dark .address-box h3{
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .address-box p {
   margin-bottom: 16px;
@@ -1802,6 +1829,6 @@ body.dark .main-nav a.active::after {
   }
 
   .main-nav.open {
-    display: flex;
+    display: flex;
   }
 }
