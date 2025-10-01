@@ -625,46 +625,64 @@ body.dark .brand-text h1{
     url("assets/bannerBackground.jpg") no-repeat center center/cover;
   background-attachment: fixed;
   color: #fff;
-  padding: 175px 0;
+  padding: 175px 20px;
   position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
 }
+
 .hero-inner {
   position: relative;
   z-index: 1;
-  display: flex;
-  gap: 40px;
-  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
+
 .hero-left {
-  flex: 1;
+  flex: none;
 }
+
 .hero-left h2 {
-  font-size: 40px;
+  font-size: 55px;
   color: #fff;
   margin-bottom: 16px;
   font-weight: 800;
-  font-family: 'Montserrat', sans-serif; /* Fonte estilosa p/ título */
-  letter-spacing: -0.5px; /* deixa mais compacto e moderno */
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.5px;
 }
 
 .hero-left p {
   margin-bottom: 20px;
-  font-size: 18px;
-  font-family: 'Poppins', sans-serif; /* Texto leve e legível */
+  font-size: 19px;
+  font-family: 'Poppins', sans-serif;
   color: #f0f0f0;
-  line-height: 1.6; /* melhora leitura */
+  line-height: 1.6;
 }
+
 .hero-ctas {
   display: flex;
+  justify-content: center;
   gap: 16px;
   margin-bottom: 24px;
 }
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 20px;
+}
+
 .btn {
   padding: 12px 20px;
   border-radius: 8px;
@@ -684,18 +702,39 @@ body.dark .btn.primary{
   color: var(--green-light);
   background: transparent;
 }
-body.dark .btn.ghost{
+body.dark .btn.ghost {
+  border: none;
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: var(--green-light);
+  background: transparent;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(90deg, #4ade80, #60a5fa);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  border-color: linear-gradient(90deg, #4ade80, #60a5fa);
 }
-.stats {
-  display: flex;
-  gap: 32px;
-  margin-top: 20px;
+
+body.dark .btn.ghost::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(90deg, #4ade80, #60a5fa);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+          mask-composite: exclude; 
+  pointer-events: none;
 }
+
 .stat strong {
   font-size: 26px;
   color: var(--green-light);
