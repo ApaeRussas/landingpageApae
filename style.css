@@ -702,7 +702,6 @@ body.dark .btn.primary{
   color: var(--green-light);
   background: transparent;
 }
-<<<<<<< HEAD
 body.dark .btn.ghost {
   border: none;
   position: relative;
@@ -715,22 +714,10 @@ body.dark .btn.ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-=======
-body.dark .btn.ghost{
->>>>>>> 8296e6c5988eccad7f40ed8020ba0ca1100e220f
   background: linear-gradient(90deg, #4ade80, #60a5fa);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-<<<<<<< HEAD
-=======
-  border-color: linear-gradient(90deg, #4ade80, #60a5fa);
-}
-.stats {
-  display: flex;
-  gap: 32px;
-  margin-top: 20px;
->>>>>>> 8296e6c5988eccad7f40ed8020ba0ca1100e220f
 }
 
 body.dark .btn.ghost::before {
