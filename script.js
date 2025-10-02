@@ -239,37 +239,6 @@
     window.addEventListener("load", revealAtividades);
 
     /* ==========================================
-       AUTO-HIGHLIGHT ATIVIDADES
-    ===========================================*/
-    let autoI = 0;
-    const itens = document.querySelectorAll(".atividades-item");
-    if (itens.length) {
-      if (!isMobile()) {
-        setInterval(() => {
-          itens.forEach((el) => el.classList.remove("auto-hover"));
-          itens[autoI].classList.add("auto-hover");
-          autoI = (autoI + 1) % itens.length;
-        }, 3000);
-
-        itens.forEach((card, idx) => {
-          card.addEventListener("mouseenter", () => {
-            card.style.zIndex = 20;
-          });
-          card.addEventListener("mouseleave", () => {
-            card.style.zIndex = card.classList.contains("auto-hover")
-              ? 10
-              : 5 - idx;
-          });
-        });
-      } else {
-        itens.forEach((card) => {
-          card.style.transform = "none";
-          card.style.zIndex = 1;
-        });
-      }
-    }
-
-    /* ==========================================
        DARK MODE SWITCH (SEM REPETIÇÃO)
     ===========================================*/
     const initDarkModeFromStorage = () => {
