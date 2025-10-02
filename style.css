@@ -10,7 +10,6 @@
   --green-light: #13a551;
 }
 
-/* Cores de fundo */
 .bg-white {
   background: #ffffff;
 }
@@ -68,7 +67,6 @@ body.dark .theme-btn:hover {
   align-items: center;
   margin-right: 10px;
 }
-/* ===== CONTAINER ===== */
 .theme-toggle-wrapper {
   display: flex;
   align-items: center;
@@ -76,8 +74,6 @@ body.dark .theme-btn:hover {
   margin: 20px;
   position: relative;
 }
-
-/* ===== SWITCH CONTAINER ===== */
 .theme-switch {
   width: 80px;
   height: 40px;
@@ -90,8 +86,6 @@ body.dark .theme-btn:hover {
   background: radial-gradient(circle at 25% 50%, #ffffff 0%, #87ceeb 100%);
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.12), 0 6px 18px rgba(0, 0, 0, 0.12);
 }
-
-/* ===== CLOUDS ===== */
 .cloud {
   position: absolute;
   background-repeat: no-repeat;
@@ -100,8 +94,6 @@ body.dark .theme-btn:hover {
   pointer-events: none;
   z-index: 0;
 }
-
-/* Nuvens maiores e animadas */
 .cloud1 {
   width: 120px;
   height: 60px;
@@ -136,7 +128,6 @@ body.dark .theme-btn:hover {
   }
 }
 
-/* ===== STARS ===== */
 .stars {
   position: absolute;
   inset: 0;
@@ -144,7 +135,6 @@ body.dark .theme-btn:hover {
   z-index: 1;
 }
 
-/* Camadas de estrelas piscando alternadamente */
 .layer1,
 .layer2,
 .layer3 {
@@ -156,7 +146,6 @@ body.dark .theme-btn:hover {
   filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px #fff);
 }
 
-/* Animações alternadas */
 .layer1 {
   animation: twinkle 3s infinite alternate;
   animation-delay: 0s;
@@ -185,7 +174,6 @@ body.dark .theme-btn:hover {
   }
 }
 
-/* Visibilidade apenas à noite */
 body.dark .stars {
   opacity: 1;
 }
@@ -194,7 +182,6 @@ body:not(.dark) .stars {
   animation: none;
 }
 
-/* ===== BACKGROUNDS DIA / NOITE ===== */
 body:not(.dark) .theme-switch {
   background: radial-gradient(circle at 25% 50%, #ffffff 0%, #87ceeb 100%);
 }
@@ -207,7 +194,6 @@ body.dark .cloud {
   opacity: 0;
 }
 
-/* ===== SLIDER (Sol ou Lua) ===== */
 .switch-slider {
   width: 24px;
   height: 24px;
@@ -223,7 +209,6 @@ body.dark .cloud {
   filter: drop-shadow(0 0 4px rgba(255, 240, 150, 0.6));
 }
 
-/* Lua com crateras pequenas e visíveis */
 body.dark .switch-slider {
   left: calc(100% - 32px);
   background: radial-gradient(circle at 30% 30%, #f0f0f0 0%, #ddd 100%),
@@ -239,7 +224,6 @@ body.dark .switch-slider {
     0 5px 10px rgba(0, 0, 0, 0.35);
 }
 
-/* ===== Dark Mode no Menu Hamburger ===== */
 .menu-hamburger {
   position: relative;
   padding: 1rem;
@@ -253,7 +237,6 @@ body.dark .switch-slider {
   display: block;
 }
 
-/* Quando o dark mode estiver ativo */
 body.dark .menu-hamburger {
   background-color: rgba(0, 0, 0, 0.85);
 }
@@ -267,7 +250,6 @@ body.dark .menu-hamburger .theme-btn:hover {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
-/* ===== Efeito quando a página rolar ===== */
 .header.scrolled .theme-btn {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -714,7 +696,9 @@ body.dark .brand-text h1 {
   margin-top: 20px;
 }
 
-:root { --green-light2: #34d399; }
+:root {
+  --green-light2: #34d399;
+}
 
 .btn {
   padding: 12px 20px;
@@ -775,21 +759,18 @@ body.dark .btn.ghost {
 }
 
 body.dark .btn.ghost::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: 8px;
   background: linear-gradient(90deg, #4ade80, #60a5fa);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
-          mask-composite: exclude; 
+  mask-composite: exclude;
   z-index: -1;
   box-sizing: border-box;
   padding: 1.4px;
 }
-
-
-
 
 .stat strong {
   font-size: 26px;
@@ -994,6 +975,18 @@ body.dark .mvv p {
   font-size: 1rem;
   line-height: 1.4;
 }
+.event-item h5 {
+  position: absolute;
+  top: 0px;
+  left: 12px;
+  margin: 0;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
 .eventos .section-title {
   text-align: center;
   margin-left: auto;
@@ -1105,7 +1098,6 @@ body.dark .mvv p {
   text-align: center;
 }
 
-
 /* Mapa */
 .mapa {
   padding: 80px 20px;
@@ -1168,8 +1160,6 @@ body.dark .address-box {
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #ddd;
 }
-
-
 
 body.dark .address-box p {
   color: #ccc;
@@ -1814,7 +1804,6 @@ body.dark .main-nav a.active::after {
     order: -1;
   }
 
-  /* Doar */
   .doar-content {
     flex-direction: column;
     align-items: center;
@@ -1883,7 +1872,6 @@ body.dark .main-nav a.active::after {
     min-width: 90%;
   }
 
-  /* Doar */
   .pix-card {
     padding: 16px;
     border-radius: 16px;
@@ -1898,17 +1886,20 @@ body.dark .main-nav a.active::after {
     width: 130px;
   }
 }
-/* Ajuste para a barra de navegação em telas muito pequenas */
-@media (max-width: 375px) {
+
+/* Celulares até 375px */
+@media (max-width: 425px) {
   .nav {
-    gap: 10px;
+    gap: 0px;
     padding: 0 10px;
   }
 
-  .hamburger {
-    display: block !important;
-    font-size: 1.6rem;
-    cursor: pointer;
+  .btn-donate {
+    margin-right: 10px;
+  }
+
+  .theme-toggle-wrapper {
+    margin: 10px;
   }
 
   .main-nav {
@@ -1921,6 +1912,47 @@ body.dark .main-nav a.active::after {
     width: 200px;
     padding: 10px;
     border-radius: 8px;
+    gap: 50px;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+}
+
+/* Celulares até 320px */
+@media (max-width: 320px) {
+  .nav {
+    gap: 0px;
+    padding: 0 10px;
+  }
+
+  .hamburger {
+    display: block !important;
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+
+  .btn-donate {
+    margin-right: 10px;
+  }
+
+  .theme-toggle-wrapper {
+    margin: 10px;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #111;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    gap: 50px;
   }
 
   .main-nav.open {
