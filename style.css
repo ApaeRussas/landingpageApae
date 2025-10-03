@@ -1012,13 +1012,12 @@ body.dark .mvv p {
 }
 
 .atividades-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
   margin-top: 40px;
-  position: relative;
 }
+
 
 .atividades-item {
   --rx: 0deg;
@@ -1887,19 +1886,17 @@ body.dark .main-nav a.active::after {
   }
 }
 
-/* Celulares até 375px */
-@media (max-width: 425px) {
+/* ===== Celulares pequenos (até 375px) ===== */
+@media (max-width: 375px) {
   .nav {
-    gap: 0px;
+    gap: 10px;
     padding: 0 10px;
   }
 
-  .btn-donate {
-    margin-right: 10px;
-  }
-
-  .theme-toggle-wrapper {
-    margin: 10px;
+  .hamburger {
+    display: block !important;
+    font-size: 1.6rem;
+    cursor: pointer;
   }
 
   .main-nav {
@@ -1912,7 +1909,6 @@ body.dark .main-nav a.active::after {
     width: 200px;
     padding: 10px;
     border-radius: 8px;
-    gap: 50px;
   }
 
   .main-nav.open {
