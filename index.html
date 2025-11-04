@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>APAE Russas</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-pVt3l+0TjF+u9z7G3qfP1yRw9Ciw5EwtJ+GvhlS68NUEZejHh9Dkaq6Ez4p0pRoM7TZ2Al8g4NkeqghfFsK1ZQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>APAE Russas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- Content Security Policy básica -->
-    <meta http-equiv="Content-Security-Policy"
-  content="default-src 'self';
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-pVt3l+0TjF+u9z7G3qfP1yRw9Ciw5EwtJ+GvhlS68NUEZejHh9Dkaq6Ez4p0pRoM7TZ2Al8g4NkeqghfFsK1ZQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Content Security Policy básica -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';
            img-src 'self' data: https://picsum.photos https://www.google.com;
            script-src 'self' https://cdnjs.cloudflare.com;
            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
@@ -33,387 +25,369 @@
            frame-src https://www.google.com;">
 
 
-  </head>
+</head>
 
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container nav">
-        <div class="brand">
-          <img src="assets/logo.png" alt="APAE Russas" class="logo" />
-          <div class="brand-text">
-            <h1>APAE Russas</h1>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/logo.png" alt="APAE Russas" class="logo" />
+        <div class="brand-text">
+          <h1>APAE Russas</h1>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#atividades">Atividades</a></li>
+          <li><a href="#mapa">Mapa</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-toggle-wrapper">
+        <div class="theme-switch" id="toggle-theme">
+          <div class="cloud cloud1"></div>
+          <div class="cloud cloud2"></div>
+          <div class="cloud cloud3"></div>
+
+          <div class="stars layer1"></div>
+          <div class="stars layer2"></div>
+          <div class="stars layer3"></div>
+
+          <div class="switch-slider"></div>
+        </div>
+      </div>
+
+      <button class="hamburger">☰</button>
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h2>APAE Russas</h2>
+        <p>
+          Desde 2006 transformando sonhos em realidade.
+        </p>
+        <div class="hero-ctas">
+          <a href="#doar" class="btn primary">Quero Ajudar</a>
+          <a href="#atividades" class="btn ghost">Nossas Atividades</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>+250</strong><span>Atendimentos/ano</span>
           </div>
-        </div>
-    
-        <nav class="main-nav">
-          <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#atividades">Atividades</a></li>
-            <li><a href="#mapa">Mapa</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </nav>
-    
-        <div class="theme-toggle-wrapper">
-          <div class="theme-switch" id="toggle-theme">
-            <div class="cloud cloud1"></div>
-            <div class="cloud cloud2"></div>
-            <div class="cloud cloud3"></div>
-        
-            <div class="stars layer1"></div>
-            <div class="stars layer2"></div>
-            <div class="stars layer3"></div>
-        
-            <div class="switch-slider"></div>
+          <div class="stat">
+            <strong>+12</strong><span>Profissionais</span>
           </div>
-        </div>
-        
-        <a class="btn-donate" href="#doar"><i class="fas fa-heart"></i> DOE AGORA</a>
-    
-        <button class="hamburger">☰</button>
-      </div>
-    </header>
-    
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-left">
-          <h2>APAE Russas</h2>
-          <p>
-            Desde 2006 transformando sonhos em realidade.
-          </p>
-          <div class="hero-ctas">
-            <a href="#doar" class="btn primary">Quero Ajudar</a>
-            <a href="#atividades" class="btn ghost">Nossos Projetos</a>
+          <div class="stat">
+            <strong>19 anos</strong><span>de atuação</span>
           </div>
-          <div class="stats">
-            <div class="stat">
-              <strong>+250</strong><span>Atendimentos/ano</span>
-            </div>
-            <div class="stat">
-              <strong>+12</strong><span>Profissionais</span>
-            </div>
-            <div class="stat">
-              <strong>19 anos</strong><span>de atuação</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE + MVV -->
-    <section id="sobre" class="sobre-mvv">
-      <div class="container sobre-grid">
-        <div class="sobre-text">
-          <h2 class="section-title">Sobre Nós</h2>
-          <p>
-            A APAE Russas é uma instituição sem fins lucrativos que atua desde
-            2006 na promoção da inclusão social, educação, saúde e qualidade de
-            vida das pessoas com deficiência e suas famílias. Nosso compromisso
-            é garantir dignidade, respeito e oportunidades, contribuindo para
-            uma sociedade mais justa e humana.
-          </p>
-        </div>
-        <div class="sobre-img">
-          <img src="assets/sobreNos.jpg" alt="APAE Russas" />
-        </div>
-      </div>
-
-      <div class="container mvv-grid-container">
-        <div class="mvv-grid">
-          <div class="mvv">
-            <i class="fas fa-bullseye fa-2x"></i>
-            <h3>Missão</h3>
-            <p>
-              Garantir apoio e promover a inclusão e autonomia das pessoas com
-              deficiência.
-            </p>
-          </div>
-          <div class="mvv">
-            <i class="fas fa-eye fa-2x"></i>
-            <h3>Visão</h3>
-            <p>Ser referência regional em cuidado e inclusão de qualidade.</p>
-          </div>
-          <div class="mvv">
-            <i class="fas fa-heart fa-2x"></i>
-            <h3>Valores</h3>
-            <p>Respeito, empatia, ética e compromisso social.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Eventos -->
-<section id="eventos" class="eventos bg-white">
-  <div class="container">
-    <h2 class="section-title">Nossos Eventos</h2>
-    <p class="section-subtitle">
-      Momentos especiais que compartilhamos com a comunidade
-    </p>
-    <div class="eventos-carousel">
-
-      <!-- Fevereiro/Março -->
-      <div class="event-item" style="background-image: url('assets/carnavalApae.jpg')">
-        <h5>FEV</h5>
-        <div class="event-content">
-          <h4>Carnaval</h4>
-          <p>Atividade de Cultura e socialização entre os assistidos da APAE.</p>
-        </div>
-      </div>
-
-      <div class="event-item" style="background-image: url('assets/diaSíndromeDownApae.jpg')">
-        <h5>MAR</h5>
-        <div class="event-content">
-          <h4>Dia da Síndrome de Down</h4>
-          <p>Encontro de conscientização com palestras, música e momentos de acolhimento.</p>
-        </div>
-      </div>
-
-      <div class="event-item" style="background-image: url('assets/pascoaApae.jpg')">
-        <h5>ABR</h5>
-        <div class="event-content">
-          <h4>Páscoa</h4>
-          <p>Inclusão Social/Atividade Social da APAE em parceira com a Uniasselvi.</p>
-        </div>
-      </div>
-
-      <div class="event-item" style="background-image: url('assets/saoJoaoApae.jpg')">
-        <h5>JUN</h5>
-        <div class="event-content">
-          <h4>São João</h4>
-          <p>Inclusão Social/Atividade de Cultura com a participação dos assistidos e familiares da APAE Russas no
-            Festival Junino Municipal.</p>
-        </div>
-      </div>
-
-      <!-- Agosto -->
-      <div class="event-item" style="background-image: url('assets/semanaNacionaldaPessoacomDeficiencia.jpg')">
-        <h5>AGO</h5>
-        <div class="event-content">
-          <h4>Semana Nacional da Pessoa com Deficiência Intelectual, Múltipla e Autismo</h4>
-          <p>Deficiência não define. Oportunidade transforma.</p>
-          <p>Inclua nossa voz!</p>
-        </div>
-      </div>
-
-      <!-- Setembro -->
-      <div class="event-item" style="background-image: url('assets/seteSetembroApae.jpg')">
-        <h5>SET</h5>
-        <div class="event-content">
-          <h4>7 de Setembro</h4>
-          <p>Inclusão Educacional/Desfile Cívico Municipal.</p>
-        </div>
-      </div>
-
-      <!-- Setembro/Outubro -->
-      <div class="event-item" style="background-image: url('assets/feiraFamaApae.jpg')">
-        <h5>SET/OUT</h5>
-        <div class="event-content">
-          <h4>Desfile Feira Fama</h4>
-          <p>Apresentação de talentos, exposição de trabalhos e desfile inclusivo para toda a comunidade.</p>
-        </div>
-      </div>
-
-      <!-- Outubro -->
-      <div class="event-item" style="background-image: url('assets/diadoProfessor.jpg')">
-        <h5>OUT</h5>
-        <div class="event-content">
-          <h4>Dia dos Professores</h4>
-          <p>Ser educador é ser poeta do amor (Augusto Cury).</p>
-        </div>
-      </div>
-
-      <!-- Outubro -->
-      <div class="event-item" style="background-image: url('assets/diaCriancasApae.jpg')">
-        <h5>OUT</h5>
-        <div class="event-content">
-          <h4>Dia das Crianças</h4>
-          <p>Brincadeiras, atividades lúdicas e distribuição de presentes para celebrar a infância.</p>
-        </div>
-      </div>
-
-      <!-- Contínuo -->
-      <div class="event-item" style="background-image: url('assets/movimentosApae.jpg')">
-        <h5>CONTÍNUO</h5>
-        <div class="event-content">
-          <h4>Movimentos Sociais</h4>
-          <p>Ações Solidárias voltadas para as famílias da APAE Russas.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-    <!-- Atividades -->
-    <section id="atividades" class="atividades">
-      <div class="container">
-        <h2 class="section-title">Nossas Atividades</h2>
-        <p class="section-subtitle">Projetos e ações que fazem a diferença</p>
+  <!-- SOBRE + MVV -->
+  <section id="sobre" class="sobre-mvv">
+    <div class="container sobre-grid">
+      <div class="sobre-text">
+        <h2 class="section-title">Sobre Nós</h2>
+        <p>
+          A APAE Russas é uma instituição sem fins lucrativos que atua desde
+          2006 na promoção da inclusão social, educação, saúde e qualidade de
+          vida das pessoas com deficiência e suas famílias. Nosso compromisso
+          é garantir dignidade, respeito e oportunidades, contribuindo para
+          uma sociedade mais justa e humana.
+        </p>
+      </div>
+      <div class="sobre-img">
+        <img src="assets/sobreNos.jpg" alt="APAE Russas" />
+      </div>
+    </div>
 
+    <div class="container mvv-grid-container">
+      <div class="mvv-grid">
+        <div class="mvv">
+          <i class="fas fa-bullseye fa-2x"></i>
+          <h3>Missão</h3>
+          <p>
+            Garantir apoio e promover a inclusão e autonomia das pessoas com
+            deficiência.
+          </p>
+        </div>
+        <div class="mvv">
+          <i class="fas fa-eye fa-2x"></i>
+          <h3>Visão</h3>
+          <p>Ser referência regional em cuidado e inclusão de qualidade.</p>
+        </div>
+        <div class="mvv">
+          <i class="fas fa-heart fa-2x"></i>
+          <h3>Valores</h3>
+          <p>Respeito, empatia, ética e compromisso social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eventos -->
+  <section id="eventos" class="eventos bg-white">
+    <div class="container">
+      <h2 class="section-title">Nossos Eventos</h2>
+      <p class="section-subtitle">
+        Momentos especiais que compartilhamos com a comunidade
+      </p>
+      <div class="eventos-carousel">
+
+        <!-- Fevereiro/Março -->
+        <div class="event-item" style="background-image: url('assets/carnavalApae.jpg')">
+          <h5>FEV</h5>
+          <div class="event-content">
+            <h4>Carnaval</h4>
+            <p>Atividade de Cultura e socialização entre os assistidos da APAE.</p>
+          </div>
+        </div>
+
+        <div class="event-item" style="background-image: url('assets/diaSíndromeDownApae.jpg')">
+          <h5>MAR</h5>
+          <div class="event-content">
+            <h4>Dia da Síndrome de Down</h4>
+            <p>Encontro de conscientização com palestras, música e momentos de acolhimento.</p>
+          </div>
+        </div>
+
+        <div class="event-item" style="background-image: url('assets/pascoaApae.jpg')">
+          <h5>ABR</h5>
+          <div class="event-content">
+            <h4>Páscoa</h4>
+            <p>Inclusão Social/Atividade Social da APAE em parceira com a Uniasselvi.</p>
+          </div>
+        </div>
+
+        <div class="event-item" style="background-image: url('assets/saoJoaoApae.jpg')">
+          <h5>JUN</h5>
+          <div class="event-content">
+            <h4>São João</h4>
+            <p>Inclusão Social/Atividade de Cultura com a participação dos assistidos e familiares da APAE Russas no
+              Festival Junino Municipal.</p>
+          </div>
+        </div>
+
+        <!-- Agosto -->
+        <div class="event-item" style="background-image: url('assets/semanaNacionaldaPessoacomDeficiencia.jpg')">
+          <h5>AGO</h5>
+          <div class="event-content">
+            <h4>Semana Nacional da Pessoa com Deficiência Intelectual, Múltipla e Autismo</h4>
+            <p>Deficiência não define. Oportunidade transforma.</p>
+            <p>Inclua nossa voz!</p>
+          </div>
+        </div>
+
+        <!-- Setembro -->
+        <div class="event-item" style="background-image: url('assets/seteSetembroApae.jpg')">
+          <h5>SET</h5>
+          <div class="event-content">
+            <h4>7 de Setembro</h4>
+            <p>Inclusão Educacional/Desfile Cívico Municipal.</p>
+          </div>
+        </div>
+
+        <!-- Setembro/Outubro -->
+        <div class="event-item" style="background-image: url('assets/feiraFamaApae.jpg')">
+          <h5>SET/OUT</h5>
+          <div class="event-content">
+            <h4>Desfile Feira Fama</h4>
+            <p>Apresentação de talentos, exposição de trabalhos e desfile inclusivo para toda a comunidade.</p>
+          </div>
+        </div>
+
+        <!-- Outubro -->
+        <div class="event-item" style="background-image: url('assets/diadoProfessor.jpg')">
+          <h5>OUT</h5>
+          <div class="event-content">
+            <h4>Dia dos Professores</h4>
+            <p>Ser educador é ser poeta do amor (Augusto Cury).</p>
+          </div>
+        </div>
+
+        <!-- Outubro -->
+        <div class="event-item" style="background-image: url('assets/diaCriancasApae.jpg')">
+          <h5>OUT</h5>
+          <div class="event-content">
+            <h4>Dia das Crianças</h4>
+            <p>Brincadeiras, atividades lúdicas e distribuição de presentes para celebrar a infância.</p>
+          </div>
+        </div>
+
+        <!-- Contínuo -->
+        <div class="event-item" style="background-image: url('assets/movimentosApae.jpg')">
+          <h5>CONTÍNUO</h5>
+          <div class="event-content">
+            <h4>Movimentos Sociais</h4>
+            <p>Ações Solidárias voltadas para as famílias da APAE Russas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atividades -->
+  <section id="atividades" class="atividades">
+    <div class="container">
+      <h2 class="section-title">Nossas Atividades</h2>
+      <p class="section-subtitle">Projetos e ações que fazem a diferença</p>
+
+      <div class="atividades-grid">
         <div class="atividades-grid">
-          <div class="atividades-grid">
-            <div class="atividades-item">
-              <img src="assets/suaNotatemValor.jpg" alt="Post 1" />
-              <p>Sua Nota tem Valor</p>
-              </a>
-            </div>
           <div class="atividades-item">
-              <img src="assets/atvComputador.jpg" alt="Post 1" />
-              <p>Informática Educacional</p>
+            <img src="assets/suaNotatemValor.jpg" alt="Post 1" />
+            <p>Sua Nota tem Valor</p>
             </a>
           </div>
           <div class="atividades-item">
-              <img src="assets/atvConjunto.jpg" alt="Post 2" />
-              <p>Projeto de Atividade de Artes</p>
+            <img src="assets/atvComputador.jpg" alt="Post 1" />
+            <p>Informática Educacional</p>
             </a>
           </div>
           <div class="atividades-item">
-              <img src="assets/atvLetras.jpg" alt="Post 3" />
-              <p>Centro de Atendimento Educacional Especializado</p>
+            <img src="assets/atvConjunto.jpg" alt="Post 2" />
+            <p>Projeto de Atividade de Artes</p>
             </a>
           </div>
           <div class="atividades-item">
-              <img src="assets/emendaSenadorEduardo.jpg" alt="Post 4" />
-              <p>Ementada Parlamentar Senador Eduardo Girão</p>
+            <img src="assets/atvLetras.jpg" alt="Post 3" />
+            <p>Centro de Atendimento Educacional Especializado</p>
             </a>
           </div>
           <div class="atividades-item">
-              <img src="assets/centroDeConvivencia.jpg" alt="Post 5" />
-              <p>Centro de convivência</p>
+            <img src="assets/emendaSenadorEduardo.jpg" alt="Post 4" />
+            <p>Emenda Parlamentar Senador Eduardo Girão</p>
             </a>
           </div>
           <div class="atividades-item">
             <img src="assets/centroDeConvivencia.jpg" alt="Post 5" />
             <p>Centro de convivência</p>
-          </a>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mapa -->
-    <section id="mapa" class="mapa bg-gray">
-      <div class="container">
-        <h2 class="section-title">Onde Estamos</h2>
-
-        <div class="map-card">
-          <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15800!2d-37.9751!3d-4.9397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b9fcd22d79c7fb%3A0x1e6b39d9d3e449f4!2sTv.+Joaquim+Félix%2C+340+-+Centro%2C+Russas+-+CE%2C+62900-000!5e0!3m2!1spt-BR!2sbr!4v1693333333333"
-      width="100%"
-      height="450"
-      style="border: 0"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-        </div>
-
-        <div class="address-box">
-          <h3>Endereço</h3>
-          <p>Trav. Joaquim Félix, 340 – Centro<br />Russas – CE, 62900-000</p>
-          <a
-            class="btn primary"
-            target="_blank"
-            href="https://maps.google.com/?q=Trav.+Joaquim+Félix,+340,+Russas,+CE"
-          >
-            Ver no Google Maps
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Doar -->
-    <section id="doar" class="doar">
-      <div class="container">
-        <div class="doar-box">
-          <h2 class="section-title" style="color: white;">Ajude-nos a transformar vidas</h2>
-          <p>
-            Sua doação sustenta nossos atendimentos e projetos. Qualquer
-            contribuição faz diferença.
-          </p>
-
-          <div class="doar-content">
-            <div class="pix-card">
-              <p><strong>QR Code PIX:</strong></p>
-              <img
-                src="assets/qrcode-pix.png"
-                alt="QR Code PIX"
-                class="qrcode"
-              />
-            </div>
-
-            <div class="pix-card">
-              <p><strong>Chave PIX:</strong> russas@apaece.org.br</p>
-              <p><strong>Nome:</strong> ASSOCIACAO DE PAIS E AMIGOS DOS EXCEPCIONAIS DE RUSSAS</p>
-              <p><strong>Instituição:</strong> BCO DO BRASIL S.A.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" class="contato bg-gray">
-      <div class="container contato-grid">
-        <div class="contato-info">
-          <h2 class="section-title">Fale Conosco</h2>
-          <p>
-            Entre em contato pelas nossas redes sociais ou pelo canal abaixo:
-          </p>
-
-          <div class="social-icons">
-            <a href="https://instagram.com/apaerussas" class="instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </div>
-
-          <ul class="contact-list">
-            <li>
-              <i class="fas fa-map-marker-alt"></i> Tv. Joaquim Félix, 340 -
-              Centro, Russas - CE
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <img src="assets/logo.png" alt="APAE Russas" />
-          <p>© 2025 APAE Russas — Todos os direitos reservados</p>
-        </div>
-
-        <div class="footer-links">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="#sobre">Sobre Nós</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#atividades">Atividades</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
-
-        <!-- Redes sociais -->
-        <div class="footer-socials">
-          <h4>Nos siga</h4>
-          <div class="social-icons">
-            <a
-              href="https://instagram.com/apaerussas"
-              target="_blank"
-              class="instagram"
-            >
-              <i class="fab fa-instagram"></i>
             </a>
           </div>
+          <div class="atividades-item">
+            <div class="atividades-deputado">
+            <img src="assets/emendaAndréFernandes.jpg" alt="Post 5" />
+            <p>Emenda Parlamentar do Deputado Federal André Fernandes</p>
+            </a>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+  </section>
 
-    <script src="script.js" defer></script>
-  </body>
+  <!-- Mapa -->
+  <section id="mapa" class="mapa bg-gray">
+    <div class="container">
+      <h2 class="section-title">Onde Estamos</h2>
+
+      <div class="map-card">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15800!2d-37.9751!3d-4.9397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b9fcd22d79c7fb%3A0x1e6b39d9d3e449f4!2sTv.+Joaquim+Félix%2C+340+-+Centro%2C+Russas+-+CE%2C+62900-000!5e0!3m2!1spt-BR!2sbr!4v1693333333333"
+          width="100%" height="450" style="border: 0" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="address-box">
+        <h3>Endereço</h3>
+        <p>Trav. Joaquim Félix, 340 – Centro<br />Russas – CE, 62900-000</p>
+        <a class="btn primary" target="_blank" href="https://maps.google.com/?q=Trav.+Joaquim+Félix,+340,+Russas,+CE">
+          Ver no Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doar -->
+  <section id="doar" class="doar">
+    <div class="container">
+      <div class="doar-box">
+        <h2 class="section-title" style="color: white;">Ajude-nos a transformar vidas</h2>
+        <p>
+          Sua doação sustenta nossos atendimentos e projetos. Qualquer
+          contribuição faz diferença.
+        </p>
+
+        <div class="doar-content">
+          <div class="pix-card">
+            <p><strong>QR Code PIX:</strong></p>
+            <img src="assets/qrcode-pix.png" alt="QR Code PIX" class="qrcode" />
+          </div>
+
+          <div class="pix-card">
+            <p><strong>Chave PIX:</strong> russas@apaece.org.br</p>
+            <p><strong>Nome:</strong> ASSOCIACAO DE PAIS E AMIGOS DOS EXCEPCIONAIS DE RUSSAS</p>
+            <p><strong>Instituição:</strong> BCO DO BRASIL S.A.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="contato bg-gray">
+    <div class="container contato-grid">
+      <div class="contato-info">
+        <h2 class="section-title">Fale Conosco</h2>
+        <p>
+          Entre em contato pelas nossas redes sociais ou pelo canal abaixo:
+        </p>
+
+        <div class="social-icons">
+          <a href="https://instagram.com/apaerussas" class="instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <ul class="contact-list">
+          <li>
+            <i class="fas fa-map-marker-alt"></i> Tv. Joaquim Félix, 340 -
+            Centro, Russas - CE
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="APAE Russas" />
+        <p>© 2025 APAE Russas — Todos os direitos reservados</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#atividades">Atividades</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociais -->
+      <div class="footer-socials">
+        <h4>Nos siga</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/apaerussas" target="_blank" class="instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+
 </html>

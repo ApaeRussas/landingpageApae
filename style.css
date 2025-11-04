@@ -981,10 +981,11 @@ body.dark .mvv p {
   left: 12px;
   margin: 0;
   padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   color: #fff;
   font-size: 0.8rem;
   border-radius: 4px;
+  
 }
 
 .eventos .section-title {
@@ -993,11 +994,13 @@ body.dark .mvv p {
   margin-right: auto;
 }
 
+
 /* Atividades */
 .atividades {
   background: linear-gradient(135deg, #f0f4f7 0%, #fafafa 100%);
   padding: 80px 20px;
   text-align: center;
+
 }
 
 .atividades h2 {
@@ -1012,12 +1015,13 @@ body.dark .mvv p {
 }
 
 .atividades-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px 80px;
   margin-top: 40px;
+  position: relative;
 }
-
 
 .atividades-item {
   --rx: 0deg;
@@ -1883,6 +1887,39 @@ body.dark .main-nav a.active::after {
   }
   .pix-card .qrcode {
     width: 130px;
+  }
+}
+
+/* Celulares até 375px */
+@media (max-width: 425px) {
+  .nav {
+    gap: 0px;
+    padding: 0 10px;
+  }
+
+  .btn-donate {
+    margin-right: 10px;
+  }
+
+  .theme-toggle-wrapper {
+    margin: 10px;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #111;
+    width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    gap: 50px;
+  }
+
+  .main-nav.open {
+    display: flex;
   }
 }
 
