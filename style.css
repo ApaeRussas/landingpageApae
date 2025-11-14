@@ -8,6 +8,7 @@
   --bg: #f9fafb;
   --text: #1f2937;
   --green-light: #13a551;
+  --orange: #ffaa00;
 }
 
 .bg-white {
@@ -204,20 +205,6 @@ body.dark .header.scrolled .main-nav a.active {
 body.dark .btn-donate {
   background: linear-gradient(90deg, #4ade80, #60a5fa);
   color: #fff;
-}
-
-/* Hero */
-body.dark .hero {
-  background: linear-gradient(
-      135deg,
-      rgba(17, 24, 39, 0.85),
-      rgba(31, 41, 55, 0.85)
-    ),
-    url("assets/bannerBackground.jpg") no-repeat center center/cover;
-  background-attachment: fixed;
-  color: #fff;
-  padding: 175px 0;
-  position: relative;
 }
 
 /* Seções */
@@ -458,8 +445,9 @@ body {
   margin: 0 4px;
   cursor: pointer;
 }
+
 .header:not(.scrolled) .main-nav a {
-  color: #fff;
+  color: #ffffff;
 }
 .header:not(.scrolled) .main-nav a:hover {
   color: var(--green);
@@ -483,6 +471,13 @@ body {
 .main-nav a.active {
   color: var(--green);
   font-weight: 700;
+}
+
+.header:not(.scrolled) .brand-slogan{
+  color: #ffffff;
+}
+.header.scrolled .main-nav a {
+  color: var(--text);
 }
 
 /* Botão hamburger */
@@ -509,37 +504,58 @@ body.dark .header.scrolled .hamburger {
   color: #fff;
 }
 
-/* Marca / Logo */
+/* ====== Marca / Logo ====== */
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
+
 .logo {
   width: 55px;
 }
-.brand-text h1 {
-  font-size: 18px;
-  color: var(--green);
+
+/* Agrupa título e slogan verticalmente */
+.brand-title {
+  display: flex;
+  flex-direction: column;
   line-height: 1.2;
 }
-body.dark .brand-text h1 {
+
+/* Título principal */
+.brand-title h1 {
+  font-size: 16px;
+  color: var(--green);
+  margin: 0;
+}
+
+/* Slogan abaixo do título */
+.brand-slogan {
+  font-size: 11px;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* ====== Modo escuro ====== */
+body.dark .brand-title h1 {
   background: linear-gradient(90deg, #4ade80, #60a5fa);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 18px;
-  line-height: 1.2;
-}
-.brand-text span {
-  font-weight: 800;
 }
 
+body.dark .brand-slogan {
+  color: #ffffff;
+}
+
+/* HERO */
 .hero {
-  background: linear-gradient(var(--bg));
-  color: #000; /* texto preto no modo claro */
-  padding: 175px 20px;
+  background: linear-gradient(180deg, #abe7b9, #90c59e, #c6e4cd);
+  background-size: 400% 400%;
+  animation: moveGradient 12s ease infinite;
+  color: #fff; 
   position: relative;
+  padding: 175px 20px;
 
   display: flex;
   justify-content: center;
@@ -547,10 +563,47 @@ body.dark .brand-text h1 {
   text-align: center;
 }
 
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  top: -50px;
+  left: -50px;
+  transform: rotate(45deg);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  bottom: -100px;
+  right: -100px;
+  transform: rotate(-30deg);
+}
+
+
 /* MODO ESCURO */
 body.dark .hero {
-  background-color: #ffeded; /* no degradê no modo escuro */
-  color: #fff; /* texto branco no modo escuro */
+  color: #555; 
+  border-bottom: 4px solid #000;
 }
 
 .hero::before {
@@ -572,8 +625,8 @@ body.dark .hero {
 
 /* HERO - Título e Parágrafo */
 .hero-left h2 {
-  font-size: 55px;
-  color: #000; /* preto no modo claro */
+  font-size: 68px; /* antes 55px */
+  color: #fff;
   margin-bottom: 16px;
   font-weight: 800;
   font-family: "Montserrat", sans-serif;
@@ -584,11 +637,11 @@ body.dark .hero {
   margin-bottom: 20px;
   font-size: 19px;
   font-family: "Poppins", sans-serif;
-  color: #222; /* cinza escuro no modo claro */
+  color: #fff;
   line-height: 1.6;
 }
 
-/* MODO ESCURO — deixa o texto branco */
+/* MODO ESCURO — mantém texto branco */
 body.dark .hero-left h2,
 body.dark .hero-left p {
   color: #fff;
@@ -644,46 +697,6 @@ body.dark .btn.primary {
   background-clip: padding-box;
 }
 
-.btn.ghost {
-  position: relative;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--green-light);
-  background: transparent;
-  border: 2px solid var(--green-light);
-  box-sizing: border-box;
-  z-index: 0;
-  overflow: hidden;
-}
-
-body.dark .btn.ghost {
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(90deg, #4ade80, #60a5fa);
-  border: none;
-}
-
-body.dark .btn.ghost::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 8px;
-  background: linear-gradient(90deg, #4ade80, #60a5fa);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  z-index: -1;
-  box-sizing: border-box;
-  padding: 1.4px;
-}
-
 .stat strong {
   font-size: 26px;
   color: var(--green-light);
@@ -697,10 +710,15 @@ body.dark .stat strong {
   -webkit-text-fill-color: transparent;
 }
 
+body.dark .stat span {
+  color: #fff;
+}
+
 /* Seções gerais */
 section {
   padding: 80px 0;
 }
+
 .section-title {
   position: relative;
   font-size: 2.5rem;
