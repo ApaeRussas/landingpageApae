@@ -26,6 +26,7 @@
     ===========================================*/
     const applyNavColors = () => {
       if (!navMenu || !header) return;
+
       const isOpen = navMenu.classList.contains("open");
       const isDark = document.body.classList.contains("dark");
       const scroll = window.scrollY;
@@ -52,6 +53,7 @@
         }
       }
 
+      // Define cor base dos links dependendo do estado (dark/open/scroll)
       navLinks.forEach((link) => {
         safeSetColor(
           link,
@@ -89,36 +91,49 @@
     window.addEventListener("scroll", onScrollHeader);
 
     /* ==========================================
-       ACTIVE NAV LINK
+       ACTIVE NAV LINK (robusta — usa centro da viewport)
+       -> evita problemas com seções muito altas/variáveis
     ===========================================*/
     const setActiveLink = () => {
       if (!sections || !navLinks) return;
-      let index = sections.length;
 
-      while (--index && window.scrollY + 80 < sections[index].offsetTop) {}
+      let current = "";
 
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        safeSetColor(
-          link,
-          document.body.classList.contains("dark")
-            ? (navMenu.classList.contains("open") || window.scrollY > 50
-              ? "#fff" : "#fff")
-            : (navMenu.classList.contains("open") || window.scrollY > 50
-              ? "#000" : "#fff")
-        );
+      const middle = window.innerHeight / 2;
+
+      sections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+
+        // consideramos a seção ativa quando a sua área cobre o meio da tela
+        if (rect.top <= middle && rect.bottom >= middle) {
+          current = sec.getAttribute("id");
+        }
       });
 
-      if (navLinks[index]) {
-        navLinks[index].classList.add("active");
-        safeSetColor(
-          navLinks[index],
-          document.body.classList.contains("dark") ? "#0b7a3a" : "#13a551"
-        );
+      // remove classe de todos
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+      });
+
+      // aplica cores base (garante consistência)
+      applyNavColors();
+
+      // aplica ativo no link correspondente e força a cor verde
+      if (current) {
+        const activeLink = document.querySelector(`.main-nav a[href="#${current}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+          safeSetColor(
+            activeLink,
+            document.body.classList.contains("dark") ? "#0b7a3a" : "#13a551"
+          );
+        }
       }
     };
+
     window.addEventListener("scroll", setActiveLink);
-    setActiveLink();
+    window.addEventListener("resize", setActiveLink); // recalcula em resize
+    window.addEventListener("load", setActiveLink);
 
     /* ==========================================
        SMOOTH SCROLL

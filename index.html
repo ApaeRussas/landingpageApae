@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon-64.png">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -32,67 +33,67 @@
     <!-- Header -->
     <header class="header">
         <div class="container nav">
-
             <div class="brand">
+                <a href="#hero">
                 <img src="assets/logo.png" alt="APAE Russas" class="logo" />
+                </a>
                 <div class="brand-title">
                     <h1>APAE Russas - CE</h1>
                     <p class="brand-slogan">Desde 2006 transformando sonhos em realidade.</p>
                 </div>
             </div>
-
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#eventos">Eventos</a></li>
-                    <li><a href="#atividades">Atividades</a></li>
-                    <li><a href="#parcerias">Parcerias</a></li>
-                    <li><a href="#mapa">Mapa</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#eventos">Eventos</a>
+                    <a href="#atividades">Atividades</a>
+                    <a href="#parcerias">Parcerias</a>
+                    <a href="#mapa">Mapa</a>
+                    <a href="#contato">Contato</a>
                 </ul>
             </nav>
-
             <div class="theme-toggle-wrapper">
                 <div class="theme-switch" id="toggle-theme">
-                    <div class="cloud cloud1"></div>
-                    <div class="cloud cloud2"></div>
-                    <div class="cloud cloud3"></div>
 
-                    <div class="stars layer1"></div>
-                    <div class="stars layer2"></div>
-                    <div class="stars layer3"></div>
+                    <svg class="icon-sun" viewBox="0 0 24 24">
+                        <path
+                            d="M12 4.75V2m0 20v-2.75M4.75 12H2m20 0h-2.75M5.6 5.6L4 4m16 16l-1.6-1.6M5.6 18.4L4 20m16-16l-1.6 1.6M12 8a4 4 0 100 8 4 4 0 000-8z"
+                            stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" />
+                    </svg>
 
                     <div class="switch-slider"></div>
+
+                    <svg class="icon-moon" viewBox="0 0 24 24">
+                        <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" />
+                    </svg>
+
                 </div>
             </div>
+
 
             <button class="hamburger">☰</button>
         </div>
     </header>
 
     <!-- Hero -->
-    <section class="hero">
+    <section id="hero"  class="hero">
         <div class="container hero-inner">
             <div class="hero-left">
-                <h2>APAE Russas - CE</h2>
+                <h2>APAE RUSSAS - CE</h2>
+                <div class="hero-ctas">
+                    <div class="fundação-container">
+                    <strong>12/12/2006</strong>
+                    <span>Fundação</span>
+                    </div>
+                </div>
                 <div class="hero-ctas">
                     <a href="#doar" class="btn primary">Quero Ajudar</a>
-                </div>
-                <div class="stats">
-                    <div class="stat">
-                        <strong>12/12/2006</strong><span>Fundação</span>
-                    </div>
-                    <div class="stat">
-                        <strong>+12</strong><span>Profissionais</span>
-                    </div>
-                    <div class="stat">
-                        <strong>19 anos</strong><span>de atuação</span>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- SOBRE + MVV -->
     <section id="sobre" class="sobre-mvv">
         <div class="container sobre-grid">
@@ -245,75 +246,75 @@
             <h2 class="section-title">Nossas Atividades</h2>
             <p class="section-subtitle">Projetos e ações que fazem a diferença</p>
 
-                <div class="atividades-grid">
-                    <div class="atividades-item">
-                        <img src="assets/suaNotatemValor.jpg" alt="Post 1" />
-                        <p>Sua Nota tem Valor</p>
-                    </div>
-                    <div class="atividades-item">
-                        <img src="assets/atvComputador.jpg" alt="Post 1" />
-                        <p>Informática Educacional</p>
-                    </div>
-                    <div class="atividades-item">
-                        <img src="assets/atvConjunto.jpg" alt="Post 2" />
-                        <p>Projeto de Atividade de Artes</p>
-                    </div>
-                    <div class="atividades-item">
-                        <img src="assets/atvLetras.jpg" alt="Post 3" />
-                        <p>Centro de Atendimento Educacional Especializado</p>
-                    </div>
-                    <div class="atividades-item">
-                        <img src="assets/emendaSenadorEduardo.jpg" alt="Post 4" />
-                        <p>Emenda Parlamentar Senador Eduardo Girão</p>
-                    </div>
-                    <div class="atividades-item">
-                        <img src="assets/centroDeConvivencia.jpg" alt="Post 5" />
-                        <p>Centro de convivência</p>
-                    </div>
-                    <div class="atividades-item">
-                        <img src="assets/emendaAndreFernandes.jpg" alt="Post 5" />
-                        <p>Emenda André Fernandes</p>
-                    </div>
+            <div class="atividades-grid">
+                <div class="atividades-item">
+                    <img src="assets/suaNotatemValor.jpg" alt="Post 1" />
+                    <p>Sua Nota tem Valor</p>
                 </div>
+                <div class="atividades-item">
+                    <img src="assets/atvComputador.jpg" alt="Post 1" />
+                    <p>Informática Educacional</p>
+                </div>
+                <div class="atividades-item">
+                    <img src="assets/atvConjunto.jpg" alt="Post 2" />
+                    <p>Projeto de Atividade de Artes</p>
+                </div>
+                <div class="atividades-item">
+                    <img src="assets/atvLetras.jpg" alt="Post 3" />
+                    <p>Centro de Atendimento Educacional Especializado</p>
+                </div>
+                <div class="atividades-item">
+                    <img src="assets/emendaSenadorEduardo.jpg" alt="Post 4" />
+                    <p>Emenda Parlamentar Senador Eduardo Girão</p>
+                </div>
+                <div class="atividades-item">
+                    <img src="assets/centroDeConvivencia.jpg" alt="Post 5" />
+                    <p>Centro de convivência</p>
+                </div>
+                <div class="atividades-item">
+                    <img src="assets/emendaAndreFernandes.jpg" alt="Post 5" />
+                    <p>Emenda André Fernandes</p>
+                </div>
+            </div>
         </div>
     </section>
 
-<!-- Parcerias -->
-<section id="parcerias" class="parcerias">
-    <div class="container">
-        <h2 class="section-title">Nossas Parcerias</h2>
-        <p class="section-subtitle">Juntos, ampliamos o impacto da APAE</p>
+    <!-- Parcerias -->
+    <section id="parcerias" class="parcerias">
+        <div class="container">
+            <h2 class="section-title">Nossas Parcerias</h2>
+            <p class="section-subtitle">Juntos, ampliamos o impacto da APAE</p>
 
-        <div class="rede-parcerias">
-            <!-- Logo central -->
-            <div class="logo-central">
-                <img src="assets/logo.png" alt="Logo APAE" />
-            </div>
+            <div class="rede-parcerias">
+                <!-- Logo central -->
+                <div class="logo-central">
+                    <img src="assets/logo.png" alt="Logo APAE" />
+                </div>
 
-            <!-- Logos parceiras -->
-            <div class="logo-parceira p1">
-                <img src="assets/enel.png" alt="Enel" />
-                <span>Enel</span>
-            </div>
-            <div class="logo-parceira p2">
-                <img src="assets/suaNotaTemValor2.png" alt="Sua Nota Tem Valor" />
-                <span>Sua Nota Tem Valor</span>
-            </div>
-            <div class="logo-parceira p3">
-                <img src="assets/prefeituraRussas.png" alt="Prefeitura de Russas" />
-                <span>Prefeitura de Russas</span>
-            </div>
-            <div class="logo-parceira p4">
-                <img src="assets/governoCeara.svg" alt="Governo do Ceará" />
-                <span>Governo do Ceará</span>
-            </div>
-            <div class="logo-parceira p5">
-                <img src="assets/governoBrasil.png" alt="Governo do Brasil" />
-                <span>Governo do Brasil</span>
+                <!-- Logos parceiras -->
+                <div class="logo-parceira p1">
+                    <img src="assets/enel.png" alt="Enel" />
+                    <span>Enel</span>
+                </div>
+                <div class="logo-parceira p2">
+                    <img src="assets/suaNotaTemValor2.png" alt="Sua Nota Tem Valor" />
+                    <span>Sua Nota Tem Valor</span>
+                </div>
+                <div class="logo-parceira p3">
+                    <img src="assets/prefeituraRussas.png" alt="Prefeitura de Russas" />
+                    <span>Prefeitura de Russas</span>
+                </div>
+                <div class="logo-parceira p4">
+                    <img src="assets/governoCeara.svg" alt="Governo do Ceará" />
+                    <span>Governo do Ceará</span>
+                </div>
+                <div class="logo-parceira p5">
+                    <img src="assets/governoBrasil.png" alt="Governo do Brasil" />
+                    <span>Governo do Brasil</span>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Mapa -->
@@ -321,23 +322,28 @@
         <div class="container">
             <h2 class="section-title">Onde Estamos</h2>
 
-            <div class="map-card">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15800!2d-37.9751!3d-4.9397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b9fcd22d79c7fb%3A0x1e6b39d9d3e449f4!2sTv.+Joaquim+Félix%2C+340+-+Centro%2C+Russas+-+CE%2C+62900-000!5e0!3m2!1spt-BR!2sbr!4v1693333333333"
-                    width="100%" height="450" style="border: 0" allowfullscreen loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+            <div class="mapa-container">
 
-            <div class="address-box">
-                <h3>Endereço</h3>
-                <p>Trav. Joaquim Félix, 340 – Centro<br />Russas – CE, 62900-000</p>
-                <a class="btn primary" target="_blank"
-                    href="https://maps.google.com/?q=Trav.+Joaquim+Félix,+340,+Russas,+CE">
-                    Ver no Google Maps
-                </a>
+                <div class="map-card">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15800!2d-37.9751!3d-4.9397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b9fcd22d79c7fb%3A0x1e6b39d9d3e449f4!2sTv.+Joaquim+Félix%2C+340+-+Nossa Senhora de Fátima%2C+Russas+-+CE%2C+62900-000!5e0!3m2!1spt-BR!2sbr!4v1693333333333"
+                        width="100%" height="450" style="border: 0" allowfullscreen loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="address-box">
+                    <h3>Endereço</h3>
+                    <p>Trav. Joaquim Félix, 340 – Nossa Senhora de Fátima<br />Russas – CE, 62900-000</p>
+                    <a class="btn primary" target="_blank"
+                        href="https://maps.google.com/?q=Trav.+Joaquim+Félix,+340,+Russas,+CE">
+                        Ver no Google Maps
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
+
 
     <!-- Doar -->
     <section id="doar" class="doar">
@@ -380,8 +386,7 @@
 
                 <ul class="contact-list">
                     <li>
-                        <i class="fas fa-map-marker-alt"></i> Tv. Joaquim Félix, 340 -
-                        Centro, Russas - CE
+                        <i class="fas fa-map-marker-alt"></i> Tv. Joaquim Félix, 340 -Nossa Senhora de Fátima, Russas - CE
                     </li>
                 </ul>
             </div>
