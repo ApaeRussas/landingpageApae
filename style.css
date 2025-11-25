@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap");
 
-section {
-  scroll-margin-top: 120px; /* ajuste à altura do seu header fixo */
-}
-
 :root {
   --green: #0b7a3a;
   --pink: #ff5f95;
@@ -738,21 +734,6 @@ body.dark .hero-left p {
   justify-content: center;
 }
 
-.btn.primary {
-  color: #fff;
-  background: linear-gradient(90deg, #f5ff3bab, #d2db21c5, #cad310b3);
-  background-clip: padding-box;
-  border-radius: 22px;
-}
-
-body.dark .btn.primary {
-  color: #fff;
-  background-image: linear-gradient(90deg, #4ade80, #60a5fa);
-  background-color: #4ade80;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-
 body.dark .fundação-container {
   color: #fff;
   background-image: linear-gradient(90deg, #4ade80, #60a5fa);
@@ -773,6 +754,10 @@ body.dark .fundação-container {
 }
 
 /* Seções gerais */
+section {
+  scroll-margin-top: 120px; /* ajuste à altura do seu header fixo */
+}
+
 section {
   padding: 80px 0;
 }
@@ -797,7 +782,7 @@ section {
   width: 60px;
   height: 4px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--green), var(--green-light));
+  background: linear-gradient(90deg, #FFE37D, #C79E57);
   transition: width 0.3s ease;
 }
 
@@ -813,7 +798,6 @@ section {
 }
 
 /* SOBRE + MVV */
-/* SOBRE + MVV (com sombra no topo) */
 .sobre-mvv {
   padding: 100px 20px;
   background: var(--bg);
@@ -830,7 +814,6 @@ section {
   width: 100%;
   height: 85px;
   pointer-events: none;
-
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.18) 0%,
@@ -1400,12 +1383,12 @@ body.dark .address-box p {
   ================================= */
 .doar {
   padding: 100px 20px;
-  background: linear-gradient(135deg, #0b7a3a 0%, #13a551 100%);
+  background-color: #81AB8D;
   color: #fff;
   position: relative;
   overflow: hidden;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 0px;
 }
 
 .doar::before {
@@ -1455,9 +1438,9 @@ body.dark .address-box p {
 .doar-content {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch; /* IMPORTANTE: iguala alturas */
   gap: 40px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 /* PIX Card */
@@ -1469,9 +1452,14 @@ body.dark .address-box p {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
-  max-width: 400px;
-  width: 100%;
-  flex: 1 1 300px;
+
+  flex: 1;               /* todos pegam tamanhos iguais */
+  min-width: 250px;      /* evita quebrar muito pequeno */
+  max-width: 300px;      /* mantém tamanhos idênticos */
+  height: 180px;         /* altura fixa igual para todos */
+  display: flex;
+  align-items: center;   /* centraliza verticalmente */
+  justify-content: center; /* centraliza horizontalmente */
 }
 
 /* Responsividade */
@@ -1737,7 +1725,7 @@ body.dark .header.open .main-nav a {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background: var(--green-light);
+  background: #f9c66d;
   transition: width 0.3s ease;
 }
 .main-nav a:hover::after {
@@ -1765,7 +1753,7 @@ body.dark .header.open .main-nav a {
   transform: translateX(-50%);
   width: 20px;
   height: 2px;
-  background-color: #13a551;
+  background-color: #f9c66d;
   border-radius: 2px;
 }
 
@@ -1773,7 +1761,7 @@ body.dark .main-nav a.active {
   color: #0b7a3a !important;
 }
 body.dark .main-nav a.active::after {
-  background-color: #0b7a3a;
+  background-color: #f9c66d;
 }
 
 /* ----------------------------- 
@@ -2424,4 +2412,89 @@ body.dark .main-nav a.active::after {
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Ajuste do underline no menu hambúrguer (mobile) */
+@media (max-width: 950px) {
+  .main-nav a.active::after {
+    left: 0;
+    transform: none;
+    width: 100%;
+    bottom: -4px;
+  }
+
+  .main-nav a.active {
+    display: inline-block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+/* ===== Layout 1 – Três colunas com divisórias ===== */
+.doar-columns {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.doar-item {
+  flex: 1;
+  padding: 30px;
+  text-align: center;
+  color: white;
+  font-size: 1.1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.doar-item:last-child {
+  border-right: none;
+}
+
+.doar-strong {
+  color: #f9c66d;
+}
+
+/* Hover sutil */
+.doar-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transition: 0.3s;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .doar-columns {
+    flex-direction: column;
+  }
+  
+  .doar-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .doar-item:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-list li {
+    white-space: normal;        /* permite quebrar */
+    font-size: 0.9rem;          /* leve redução para caber melhor */
+    text-align: center;         /* centraliza no mobile */
+    line-height: 1.4;
+  }
+
+  .contact-list {
+    text-align: center;         /* ajusta o alinhamento geral */
+    max-width: 100%;            /* garante que ocupe a largura da tela */
+  }
+
+  .contact-list li i {
+    margin-right: 8px;
+  }
 }
