@@ -27,7 +27,6 @@ body {
 }
 
 /* ====== BOTÃO DARK MODE ====== */
-
 .theme-toggle-wrapper {
   display: flex;
   align-items: center;
@@ -39,14 +38,13 @@ body {
   width: 70px;
   height: 36px;
   border-radius: 30px;
-  background: #dcdcdc; /* Fundo neutro no modo claro */
+  background: #dcdcdc;
   position: relative;
   cursor: pointer;
   transition: background 0.4s ease, box-shadow 0.3s ease;
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== Sol (modo claro) ===== */
 .switch-slider {
   width: 30px;
   height: 30px;
@@ -64,7 +62,6 @@ body {
   box-shadow: 0 0 8px rgba(255, 200, 0, 0.6);
 }
 
-/* Raios suaves do sol */
 .switch-slider::before {
   content: "";
   position: absolute;
@@ -79,9 +76,8 @@ body {
   transition: opacity 0.4s ease;
 }
 
-/* ===== Lua (modo escuro) ===== */
 body.dark .theme-switch {
-  background: #2a2f3a; /* Fundo escuro elegante */
+  background: #2a2f3a;
   box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.08);
 }
 
@@ -91,7 +87,6 @@ body.dark .switch-slider {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
-/* Crateras da lua */
 body.dark .switch-slider::before {
   background: radial-gradient(circle at 25% 30%, #ccc 2%, transparent 0),
     radial-gradient(circle at 60% 60%, #bbb 3%, transparent 0),
@@ -102,7 +97,6 @@ body.dark .switch-slider::before {
   opacity: 1;
 }
 
-/* ===== Botão adicional (opcional) ===== */
 .theme-btn {
   font-size: 1.5rem;
   cursor: pointer;
@@ -342,7 +336,6 @@ body.dark .contact-list li {
   font-size: 1.2rem;
 }
 
-/* Z-index para sobreposição */
 .atividades-item:nth-child(1) {
   z-index: 1;
 }
@@ -359,14 +352,12 @@ body.dark .contact-list li {
   z-index: 1;
 }
 
-/* Hover normal */
 .atividades-item:hover {
   transform: scale(1.12) translateY(-20px);
   z-index: 10 !important;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
 }
 
-/* Auto-highlight */
 .atividades-item.auto-hover {
   transform: scale(1.12) translateY(-20px);
   z-index: 10 !important;
@@ -394,7 +385,6 @@ body.dark .atividades-item.auto-hover {
   box-shadow: 0 18px 45px rgba(255, 255, 255, 0.25);
 }
 
-/* Botão dark mode */
 body.dark .btn-atividades {
   background: linear-gradient(90deg, #4ade80, #60a5fa);
   color: #fff;
@@ -411,7 +401,6 @@ body.dark .btn-atividades {
   }
 }
 
-/* Footer */
 body.dark .footer {
   background: #0d1117;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -421,7 +410,7 @@ body.dark .footer a {
   color: #bbb;
 }
 
-/* Reset / Base */
+/* Base */
 * {
   margin: 0;
   padding: 0;
@@ -562,7 +551,7 @@ body.dark .header.scrolled .hamburger {
   color: #fff;
 }
 
-/* ====== Marca / Logo ====== */
+/* ====== Logo ====== */
 .brand {
   display: flex;
   align-items: center;
@@ -721,20 +710,20 @@ body.dark .hero-left p {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fundação-container {
+.fundacao-container {
   color: #fff;
-  background: #A1D6B1;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  background-color: #a2d7b0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   padding: 22px;
   border-radius: 16px;
   text-align: center;
   display: flex;
-  flex-direction: column; /* deixa o strong em cima e o span em baixo */
-  align-items: center;    /* centraliza tudo */
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-body.dark .fundação-container {
+body.dark .fundacao-container {
   color: #fff;
   background-image: linear-gradient(90deg, #4ade80, #60a5fa);
   background-color: #4ade80;
@@ -742,20 +731,21 @@ body.dark .fundação-container {
   background-clip: padding-box;
 }
 
-.fundação-container strong {
+.fundacao-container strong {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 4px; /* separa do span */
+  margin-bottom: 4px;
+  color: #fff;
 }
 
-.fundação-container span {
+.fundacao-container span {
   font-size: 18px;
-  color: #ffffff;
+  color: #fff;
 }
 
 /* Seções gerais */
 section {
-  scroll-margin-top: 120px; /* ajuste à altura do seu header fixo */
+  scroll-margin-top: 120px;
 }
 
 section {
@@ -801,15 +791,14 @@ section {
 .sobre-mvv {
   padding: 100px 20px;
   background: var(--bg);
-  position: relative; /* necessário para a sombra */
+  position: relative;
   z-index: 1;
 }
 
-/* sombra suave entre o verde (hero) e o branco */
 .sobre-mvv::before {
   content: "";
   position: absolute;
-  top: -40px; /* ajusta onde a sombra encosta no hero */
+  top: -40px;
   left: 0;
   width: 100%;
   height: 85px;
@@ -827,7 +816,6 @@ section {
   z-index: 2;
 }
 
-/* layout interno */
 .sobre-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -851,7 +839,6 @@ section {
   transform: translateY(30px);
 }
 
-/* modo escuro */
 body.dark .sobre-mvv {
   background: #000;
 }
@@ -1024,7 +1011,6 @@ body.dark .mvv p {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-/* --- GRADE DE ITENS --- */
 .atividades-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1034,7 +1020,6 @@ body.dark .mvv p {
   margin-top: 40px;
 }
 
-/* --- CARD INDIVIDUAL --- */
 .atividades-item {
   background: #fff;
   border-radius: 16px;
@@ -1069,12 +1054,11 @@ body.dark .mvv p {
   transform: scale(1.08);
 }
 
-/* --- TEXTO DO CARD --- */
 .atividades-item p {
   font-weight: 700;
   font-size: 1.1rem;
   padding: 15px;
-  color: #333;
+  color: var(--green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1127,7 +1111,6 @@ body.dark .mvv p {
   height: auto;
 }
 
-/* ===== Logos Parceiras ===== */
 .logo-parceira {
   position: absolute;
   display: flex;
@@ -1136,7 +1119,6 @@ body.dark .mvv p {
   text-align: center;
 }
 
-/* Logos dentro de círculos */
 .logo-parceira img {
   width: 160px;
   height: 160px;
@@ -1150,7 +1132,6 @@ body.dark .mvv p {
   transition: all 0.3s ease;
 }
 
-/* Efeito hover */
 .logo-parceira img:hover {
   transform: scale(1.05);
   border-color: rgba(0, 0, 0, 0.3);
@@ -1161,14 +1142,13 @@ body.dark .mvv p {
   font-size: 1rem;
   color: #555;
   font-weight: 500;
+  color: var(--green);
 }
 
-/* ===== Raio do Pentágono ===== */
 :root {
   --r: 250px;
 }
 
-/* ===== Posições (Pentágono) ===== */
 .p1 {
   top: calc(50% - var(--r) * cos(0deg));
   left: calc(50% + var(--r) * sin(0deg));
@@ -1246,7 +1226,7 @@ body.dark .mvv p {
   }
 }
 
-/* ===== Novo ajuste para 375px ↓ ===== */
+/* ===== Novo ajuste para 375px ===== */
 @media (max-width: 480px) {
   .rede-parcerias {
     width: 250px;
@@ -1254,7 +1234,7 @@ body.dark .mvv p {
   }
 
   :root {
-    --r: 95px; /* raio ajustado para telas pequenas */
+    --r: 95px;
   }
 
   .logo-central img {
@@ -1438,7 +1418,7 @@ body.dark .address-box p {
 .doar-content {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* IMPORTANTE: iguala alturas */
+  align-items: stretch;
   gap: 40px;
   flex-wrap: nowrap;
 }
@@ -1452,14 +1432,13 @@ body.dark .address-box p {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
-
-  flex: 1;               /* todos pegam tamanhos iguais */
-  min-width: 250px;      /* evita quebrar muito pequeno */
-  max-width: 300px;      /* mantém tamanhos idênticos */
-  height: 180px;         /* altura fixa igual para todos */
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  height: 180px;
   display: flex;
-  align-items: center;   /* centraliza verticalmente */
-  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsividade */
@@ -1500,7 +1479,6 @@ body.dark .address-box p {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Animação */
 @keyframes fadeUp {
   0% {
     opacity: 0;
@@ -1571,8 +1549,8 @@ body.dark .address-box p {
 }
 .contact-list li {
   display: flex;
-  align-items: center;      /* alinha verticalmente */
-  justify-content: center;  /* alinha horizontalmente */
+  align-items: center;
+  justify-content: center;
   font-size: 1rem;
   color: #333;
   margin-bottom: 15px;
@@ -1773,27 +1751,30 @@ body.dark .main-nav a.active::after {
   .hero {
     padding: 140px 30px;
   }
-
   .hero-inner {
     gap: 40px;
   }
-
-  .hero-left h2 {
-    font-size: 32px;
-  }
-
   .hero-left p {
     font-size: 16px;
   }
-
+  .hero-left h2 {
+    font-size: 40px;
+  }
   .cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-
-  /* Doar */
   .doar-content {
     gap: 30px;
+  }
+  .fundacao-container {
+    padding: 20px;
+  }
+  .fundacao-container strong {
+    font-size: 20px;
+  }
+  .fundacao-container span {
+    font-size: 17px;
   }
 }
 
@@ -1806,27 +1787,22 @@ body.dark .main-nav a.active::after {
   .main-nav {
     display: none;
   }
-
   .hamburger {
     display: block;
   }
 
-  /* Hero */
   .hero {
     padding: 120px 20px;
     background-attachment: scroll;
     text-align: center;
   }
-
   .hero-inner {
     flex-direction: column;
     gap: 30px;
   }
-
   .hero-left h2 {
-    font-size: 28px;
+    font-size: 36px;
   }
-
   .hero-left p {
     font-size: 15px;
   }
@@ -1843,10 +1819,10 @@ body.dark .main-nav a.active::after {
     gap: 20px;
   }
 
-  /* Doar */
   .doar-content {
     gap: 30px;
   }
+
   .pix-card {
     padding: 25px;
     max-width: 350px;
@@ -1861,7 +1837,7 @@ body.dark .main-nav a.active::after {
   }
   .pix-card strong {
     color: #fff;
-}
+  }
 
   .main-nav.open,
   .main-nav.active {
@@ -1892,7 +1868,6 @@ body.dark .main-nav a.active::after {
     text-align: center;
     gap: 30px;
   }
-
   .sobre-img img {
     max-width: 90%;
     height: auto;
@@ -1905,30 +1880,36 @@ body.dark .main-nav a.active::after {
     text-align: center;
     gap: 20px;
   }
-
   .footer-links ul {
     display: inline-block;
     margin-top: 10px;
   }
-
   .footer-socials .social-icons {
     justify-content: center;
     gap: 15px;
+  }
+
+  .fundacao-container {
+    padding: 18px;
+    border-radius: 14px;
+  }
+  .fundacao-container strong {
+    font-size: 19px;
+  }
+  .fundacao-container span {
+    font-size: 16px;
   }
 }
 
 /* ===== Celulares grandes (até 768px) ===== */
 @media (max-width: 768px) {
-  /* Hero */
+
   .hero {
     padding: 100px 15px;
   }
-
   .hero-left h2 {
-    font-size: 24px;
-    line-height: 1.3;
+    font-size: 30px;
   }
-
   .hero-left p {
     font-size: 14px;
   }
@@ -1955,29 +1936,21 @@ body.dark .main-nav a.active::after {
     padding-bottom: 10px;
     justify-content: flex-start;
   }
-
   .atividades-item {
     flex: 0 0 70%;
     min-height: 350px;
     scroll-snap-align: start;
-    width: auto;
-    transform: none !important;
-    z-index: 1 !important;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     overflow: hidden;
     text-align: center;
-    transition: none !important;
     cursor: default;
   }
-
   .atividades-item img {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    display: block;
   }
-
   .atividades-item p {
     padding: 20px 10px;
     font-weight: 700;
@@ -1990,38 +1963,32 @@ body.dark .main-nav a.active::after {
     cursor: pointer;
   }
 
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    background: #fff;
+    padding: 15px;
+    width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    flex-direction: column;
+    gap: 18px;
+  }
   .main-nav.open {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    color: #000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    padding-top: 80px;
-    gap: 20px;
-    z-index: 100;
+  }
+  .main-nav a {
+    font-size: 1rem;
+  }
+  #toggle-theme {
+    order: -2;
+    align-self: flex-start;
   }
 
-  .main-nav.open a {
-    font-size: 1.2rem;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  body.dark .main-nav.open {
-    background-color: #111;
-  }
-  body.dark .main-nav.open a {
-    color: #fff;
-  }
-
-  .main-nav.open #toggle-theme {
-    order: -1;
+  .theme-toggle-wrapper {
+    margin: 0 !important;
   }
 
   .doar-content {
@@ -2041,51 +2008,35 @@ body.dark .main-nav a.active::after {
     width: 150px;
   }
 
-  .header.open nav a {
-    color: #000 !important;
+  .fundacao-container {
+    padding: 16px;
   }
-
-  .nav-menu a {
-    text-decoration: none !important;
-    border-bottom: none !important;
+  .fundacao-container strong {
+    font-size: 18px;
   }
-
-  .nav-menu a::after {
-    display: none !important;
+  .fundacao-container span {
+    font-size: 15px;
   }
 }
 
-/* ===== Celulares pequenos (até 480px) ===== */
+/* ===== Telas muito pequenas (até 480px) ===== */
 @media (max-width: 480px) {
-  /* Hero */
   .hero {
     padding: 80px 10px;
   }
-
   .hero-left h2 {
-    font-size: 20px;
+    font-size: 26px;
   }
-
   .hero-left p {
     font-size: 13px;
   }
 
   .hero-ctas {
-    flex-direction: column;
-    align-items: center;
     gap: 10px;
   }
 
   .stats {
     gap: 12px;
-  }
-
-  .hero-title {
-    font-size: 1.8rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
   }
 
   .atividades-item {
@@ -2099,117 +2050,87 @@ body.dark .main-nav a.active::after {
   }
   .pix-card p {
     font-size: 1.1rem;
-    text-align: center;
-    word-break: break-word;
   }
   .pix-card .qrcode {
     width: 130px;
   }
+
+  .main-nav {
+    width: 160px;
+    padding: 12px;
+    gap: 15px;
+  }
+  .main-nav a {
+    font-size: 0.95rem;
+  }
+
+  .fundacao-container {
+    padding: 14px;
+  }
+  .fundacao-container strong {
+    font-size: 17px;
+  }
+  .fundacao-container span {
+    font-size: 14px;
+  }
 }
 
-/* Celulares até 375px */
+/* ===== Até 425px ===== */
 @media (max-width: 425px) {
   .nav {
-    gap: 0px;
     padding: 0 10px;
   }
-
-  .btn-donate {
-    margin-right: 10px;
-  }
-
-  .theme-toggle-wrapper {
-    margin: 10px;
-  }
-
   .main-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
     top: 60px;
-    right: 10px;
-    background: #111;
-    width: 200px;
-    padding: 10px;
-    border-radius: 8px;
-    gap: 50px;
-  }
-
-  .main-nav.open {
-    display: flex;
+    width: 150px;
   }
 }
 
-/* ===== Celulares pequenos (até 375px) ===== */
+/* ===== Até 375px ===== */
 @media (max-width: 375px) {
   .nav {
-    gap: 10px;
     padding: 0 10px;
   }
-
-  .hamburger {
-    display: block !important;
-    font-size: 1.6rem;
-    cursor: pointer;
-  }
-
   .main-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background: #111;
-    width: 200px;
+    width: 140px;
     padding: 10px;
-    border-radius: 8px;
   }
-
-  .main-nav.open {
-    display: flex;
+  .main-nav a {
+    font-size: 0.9rem;
+  }
+  .hero-left h2 {
+    font-size: 24px;
+  }
+  .fundacao-container strong {
+    font-size: 16px;
+  }
+  .fundacao-container span {
+    font-size: 13px;
   }
 }
 
-/* Celulares até 320px */
+/* ===== Até 320px ===== */
 @media (max-width: 320px) {
   .nav {
-    gap: 0px;
     padding: 0 10px;
   }
-
-  .hamburger {
-    display: block !important;
-    font-size: 1.6rem;
-    cursor: pointer;
-    margin-right: 15px;
-  }
-
-  .btn-donate {
-    margin-right: 10px;
-  }
-
-  .theme-toggle-wrapper {
-    margin: 10px;
-  }
-
   .main-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background: #111;
-    width: 200px;
-    padding: 10px;
-    border-radius: 8px;
-    gap: 50px;
+    width: 130px;
   }
-
-  .main-nav.open {
-    display: flex;
+  .main-nav a {
+    font-size: 0.85rem;
+  }
+  .fundacao-container strong {
+    font-size: 15px;
+  }
+  .fundacao-container span {
+    font-size: 12px;
   }
 }
-/* === RESPONSIVIDADE ATIVIDADES === */
+
+/* ============================================
+   RESPONSIVIDADE ATIVIDADES (segundo bloco)
+=============================================== */
 @media (max-width: 1024px) {
   .atividades-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -2263,20 +2184,15 @@ body.dark .main-nav a.active::after {
 }
 
 @media (max-width: 375px) {
-  /* Reduz a fonte de todos os títulos levemente */
   .atividades-item p {
     font-size: 0.95rem;
     line-height: 1.2;
   }
-
-  /* Ajuste extra só para os títulos mais longos */
   .atividades-item img[src*="atvLetras.jpg"] + p,
   .atividades-item img[src*="emendaSenadorEduardo.jpg"] + p {
     font-size: 0.8rem !important;
     line-height: 1.1;
   }
-
-  /* Garante que todos os cards fiquem na mesma altura */
   .atividades-item {
     min-height: 260px;
   }
@@ -2285,7 +2201,6 @@ body.dark .main-nav a.active::after {
   }
 }
 
-/* Reforço adicional para 320px */
 @media (max-width: 320px) {
   .atividades-item p {
     font-size: 0.85rem;
@@ -2297,10 +2212,7 @@ body.dark .main-nav a.active::after {
   }
 }
 
-/* ============================================
-   AJUSTE VISUAL: MOSTRAR TODAS AS IMAGENS
-   (somente a partir de 1024px)
-=============================================== */
+
 @media (min-width: 1024px) {
   .atividades-grid {
     display: grid;
@@ -2308,101 +2220,80 @@ body.dark .main-nav a.active::after {
     gap: 25px;
     justify-items: center;
   }
-
   .atividades-item {
     max-width: 250px;
     min-height: 300px;
   }
-
   .atividades-item img {
     height: 150px;
-    object-fit: cover;
   }
-
   .atividades-item p {
     font-size: 1rem;
     padding: 12px;
   }
 }
 
-/* ============================================
-   AJUSTE GLOBAL: DAR MAIS DESTAQUE ÀS IMAGENS
-   (sem prejudicar a legibilidade do texto)
-=============================================== */
 .atividades-item {
   min-height: 280px;
 }
-
 .atividades-item img {
-  height: 170px; /* aumenta área da imagem */
+  height: 170px;
   object-fit: cover;
   border-radius: 10px;
 }
-
-/* texto mais compacto e equilibrado */
 .atividades-item p {
-  font-size: 0.9rem; /* levemente menor, ainda legível */
-  padding: 8px 10px; /* menos espaço interno */
-  line-height: 1.3; /* mantém boa leitura */
-  max-height: 70px; /* evita que ocupe muito espaço */
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  line-height: 1.3;
+  max-height: 70px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* em telas grandes, mantém proporção agradável */
 @media (min-width: 1024px) {
   .atividades-item {
     max-width: 250px;
   }
-
   .atividades-item img {
     height: 180px;
   }
-
   .atividades-item p {
     font-size: 0.9rem;
     line-height: 1.25;
   }
 }
 
-/* Centralizar a última linha (com 3 imagens) */
 .atividades-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* centraliza horizontalmente */
-  gap: 25px; /* mantém o espaçamento entre os cards */
+  justify-content: center;
+  gap: 25px;
 }
-
 .atividades-item {
-  flex: 1 1 250px; /* mantém tamanho padrão */
+  flex: 1 1 250px;
   max-width: 250px;
 }
 
-/* Restaura o scroll horizontal em telas menores */
 @media (max-width: 768px) {
   .atividades-grid {
     display: flex;
-    flex-wrap: nowrap; /* impede quebra de linha */
-    overflow-x: auto; /* ativa o scroll horizontal */
-    justify-content: flex-start; /* começa à esquerda */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     gap: 20px;
     padding-bottom: 10px;
   }
-
   .atividades-item {
-    flex: 0 0 80%; /* cada card ocupa cerca de 80% da tela */
+    flex: 0 0 80%;
     max-width: 300px;
   }
-
-  /* Evita rolagem vertical dupla */
   .atividades {
     overflow-x: hidden;
   }
 }
 
-/* Protege contra a brand sendo exibida dentro do menu mobile */
 @media (max-width: 768px) {
   .main-nav .brand,
   .main-nav .brand * {
@@ -2411,10 +2302,9 @@ body.dark .main-nav a.active::after {
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* Ajuste do underline no menu hambúrguer (mobile) */
 @media (max-width: 950px) {
   .main-nav a.active::after {
     left: 0;
@@ -2422,7 +2312,6 @@ html {
     width: 100%;
     bottom: -4px;
   }
-
   .main-nav a.active {
     display: inline-block;
     width: fit-content;
@@ -2430,7 +2319,7 @@ html {
   }
 }
 
-/* ===== Layout 1 – Três colunas com divisórias ===== */
+
 .doar-columns {
   display: flex;
   justify-content: center;
@@ -2459,41 +2348,36 @@ html {
   color: #f9c66d;
 }
 
-/* Hover sutil */
 .doar-item:hover {
   background: rgba(255, 255, 255, 0.15);
   transition: 0.3s;
 }
 
-/* ===== Mobile ===== */
 @media (max-width: 768px) {
   .doar-columns {
     flex-direction: column;
   }
-  
   .doar-item {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
-
   .doar-item:last-child {
     border-bottom: none;
   }
 }
 
+
 @media (max-width: 768px) {
   .contact-list li {
-    white-space: normal;        /* permite quebrar */
-    font-size: 0.9rem;          /* leve redução para caber melhor */
-    text-align: center;         /* centraliza no mobile */
+    white-space: normal;
+    font-size: 0.9rem;
+    text-align: center;
     line-height: 1.4;
   }
-
   .contact-list {
-    text-align: center;         /* ajusta o alinhamento geral */
-    max-width: 100%;            /* garante que ocupe a largura da tela */
+    text-align: center;
+    max-width: 100%;
   }
-
   .contact-list li i {
     margin-right: 8px;
   }

@@ -2,9 +2,6 @@
   "use strict";
 
   document.addEventListener("DOMContentLoaded", () => {
-    /* ==========================================
-       SELETORES GLOBAIS
-    ===========================================*/
     const header = document.querySelector(".header");
     const hamburger = document.querySelector(".hamburger");
     const navMenu = document.querySelector(".main-nav");
@@ -19,11 +16,11 @@
     const themeWrapper = document.querySelector(".theme-toggle-wrapper");
 
     const isMobile = () => window.innerWidth <= 768;
-    const safeSetColor = (el, color) => { if (el) el.style.color = color; };
+    const safeSetColor = (el, color) => {
+      if (el) el.style.color = color;
+    };
 
-    /* ==========================================
-       NAVIGATION COLORS
-    ===========================================*/
+    /* NAV COLORS */
     const applyNavColors = () => {
       if (!navMenu || !header) return;
 
@@ -53,20 +50,21 @@
         }
       }
 
-      // Define cor base dos links dependendo do estado (dark/open/scroll)
       navLinks.forEach((link) => {
         safeSetColor(
           link,
           isDark
-            ? (isOpen || scroll > 50 ? "#fff" : "#fff")
-            : (isOpen || scroll > 50 ? "#000" : "#fff")
+            ? isOpen || scroll > 50
+              ? "#fff"
+              : "#fff"
+            : isOpen || scroll > 50
+            ? "#000"
+            : "#fff"
         );
       });
     };
 
-    /* ==========================================
-       HEADER SCROLL EFFECT
-    ===========================================*/
+    /* HEADER SCROLL */
     const onScrollHeader = () => {
       if (!header) return;
       const maxScroll = 250;
@@ -90,37 +88,26 @@
     };
     window.addEventListener("scroll", onScrollHeader);
 
-    /* ==========================================
-       ACTIVE NAV LINK (robusta — usa centro da viewport)
-       -> evita problemas com seções muito altas/variáveis
-    ===========================================*/
+    /* ACTIVE LINK */
     const setActiveLink = () => {
       if (!sections || !navLinks) return;
-
       let current = "";
-
       const middle = window.innerHeight / 2;
 
       sections.forEach((sec) => {
         const rect = sec.getBoundingClientRect();
-
-        // consideramos a seção ativa quando a sua área cobre o meio da tela
         if (rect.top <= middle && rect.bottom >= middle) {
           current = sec.getAttribute("id");
         }
       });
 
-      // remove classe de todos
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-      });
-
-      // aplica cores base (garante consistência)
+      navLinks.forEach((link) => link.classList.remove("active"));
       applyNavColors();
 
-      // aplica ativo no link correspondente e força a cor verde
       if (current) {
-        const activeLink = document.querySelector(`.main-nav a[href="#${current}"]`);
+        const activeLink = document.querySelector(
+          `.main-nav a[href="#${current}"]`
+        );
         if (activeLink) {
           activeLink.classList.add("active");
           safeSetColor(
@@ -132,12 +119,10 @@
     };
 
     window.addEventListener("scroll", setActiveLink);
-    window.addEventListener("resize", setActiveLink); // recalcula em resize
+    window.addEventListener("resize", setActiveLink);
     window.addEventListener("load", setActiveLink);
 
-    /* ==========================================
-       SMOOTH SCROLL
-    ===========================================*/
+    /* SMOOTH SCROLL */
     smoothLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         const href = link.getAttribute("href");
@@ -160,9 +145,7 @@
       });
     });
 
-    /* ==========================================
-       ANIMAÇÃO SEÇÕES
-    ===========================================*/
+    /* ANIMAÇÃO SOBRE */
     const animateSobre = () => {
       const elements = document.querySelectorAll(
         ".sobre-text p, .sobre-img img, .mvv"
@@ -180,9 +163,7 @@
     window.addEventListener("scroll", animateSobre);
     window.addEventListener("load", animateSobre);
 
-    /* ==========================================
-       HAMBURGER
-    ===========================================*/
+    /* HAMBURGER */
     if (hamburger) {
       hamburger.addEventListener("click", () => {
         if (!navMenu) return;
@@ -204,26 +185,74 @@
       });
     });
 
-    /* ==========================================
-       EVENTOS CAROUSEL
-    ===========================================*/
+    /* CAROUSEL COM AUTOPLAY */
     if (carousel) {
       const items = Array.from(carousel.children);
       items.forEach((item) => carousel.appendChild(item.cloneNode(true)));
-      let scrollPos = 0;
-      const speed = 0.5;
-      const scrollCarousel = () => {
-        scrollPos += speed;
-        if (scrollPos >= carousel.scrollWidth / 2) scrollPos = 0;
-        carousel.scrollLeft = scrollPos;
-        requestAnimationFrame(scrollCarousel);
+
+      let speed = 0.5;
+      let isDragging = false;
+      let startX;
+      let scrollStart;
+      let autoplay = true;
+
+      const autoScroll = () => {
+        if (autoplay) {
+          carousel.scrollLeft += speed;
+
+          if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+            carousel.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(autoScroll);
       };
-      scrollCarousel();
+      autoScroll();
+
+      carousel.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        autoplay = false;
+        startX = e.pageX;
+        scrollStart = carousel.scrollLeft;
+        carousel.style.cursor = "grabbing";
+      });
+
+      carousel.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        const walk = (e.pageX - startX) * 1.5;
+        carousel.scrollLeft = scrollStart - walk;
+      });
+
+      const stopDrag = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        carousel.style.cursor = "grab";
+
+        setTimeout(() => (autoplay = true), 800);
+      };
+
+      carousel.addEventListener("mouseup", stopDrag);
+      carousel.addEventListener("mouseleave", stopDrag);
+
+      carousel.addEventListener("touchstart", (e) => {
+        autoplay = false;
+        isDragging = true;
+        startX = e.touches[0].pageX;
+        scrollStart = carousel.scrollLeft;
+      });
+
+      carousel.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        const walk = (e.touches[0].pageX - startX) * 1.5;
+        carousel.scrollLeft = scrollStart - walk;
+      });
+
+      carousel.addEventListener("touchend", () => {
+        isDragging = false;
+        setTimeout(() => (autoplay = true), 800);
+      });
     }
 
-    /* ==========================================
-       CARDS ROTATION
-    ===========================================*/
+    /* CARD ROTATION */
     cards.forEach((card) => {
       card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
@@ -235,14 +264,11 @@
         card.style.setProperty("--ry", `${rotateY}deg`);
       });
       card.addEventListener("mouseleave", () => {
-        card.style.setProperty("--rx", `0deg`);
-        card.style.setProperty("--ry", `0deg`);
+        card.style.setProperty("--rx", "0deg");
+        card.style.setProperty("--ry", "0deg");
       });
     });
 
-    /* ==========================================
-       SCROLL REVEAL ATIVIDADES
-    ===========================================*/
     const revealAtividades = () => {
       document.querySelectorAll(".atividades-item").forEach((el) => {
         if (el.getBoundingClientRect().top < window.innerHeight - 50) {
@@ -253,9 +279,7 @@
     window.addEventListener("scroll", revealAtividades);
     window.addEventListener("load", revealAtividades);
 
-    /* ==========================================
-       DARK MODE SWITCH (SEM REPETIÇÃO)
-    ===========================================*/
+    /* DARK MODE STORAGE */
     const initDarkModeFromStorage = () => {
       if (!toggleBtn) return;
       const stored = localStorage.getItem("theme");
@@ -283,9 +307,7 @@
       });
     }
 
-    /* ==========================================
-       MOVE DARK MODE BUTTON
-    ===========================================*/
+    /* MOVE DARK MODE BUTTON */
     const updateDarkTogglePosition = () => {
       if (!toggleBtn || !navMenu || !themeWrapper) return;
 
@@ -307,9 +329,7 @@
     window.addEventListener("load", updateDarkTogglePosition);
     updateDarkTogglePosition();
 
-    /* ==========================================
-       INITIAL CALLS
-    ===========================================*/
+    /* INITIAL CALLS */
     onScrollHeader();
     setActiveLink();
     revealAtividades();
