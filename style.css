@@ -1531,8 +1531,22 @@ body.dark .address-box p {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.social-icons a,
+.social-icons a:link,
+.social-icons a:visited,
+.social-icons a:focus,
+.social-icons a:active {
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
 .social-icons a.instagram {
-  background: #e1306c;
+  background: #064b26;
+}
+
+.social-icons a.whatsapp {
+  background: #064b26;
 }
 
 .social-icons a:hover {
