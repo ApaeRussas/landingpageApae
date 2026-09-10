@@ -14,6 +14,257 @@
   --radius: 24px;
 }
 
+/* ========================================
+   PARCERIAS
+======================================== */
+
+.parcerias {
+  padding: 92px 0;
+  text-align: center;
+  background: var(--paper);
+}
+
+.parcerias .eyebrow-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.parcerias .section-title {
+  margin: 0 0 6px;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -.05em;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.parcerias .section-title:after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  margin: 20px auto 0;
+  background: var(--accent);
+  border-radius: 20px;
+}
+
+.parcerias .section-subtitle {
+  max-width: 480px;
+  margin: 22px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===== Rede de Parcerias ===== */
+
+.rede-parcerias {
+  position: relative;
+  width: 600px;
+  max-width: 100%;
+  height: 600px;
+  margin: 70px auto 0;
+}
+
+/* ===== Logo Central ===== */
+
+.logo-central {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  z-index: 10;
+}
+
+.logo-central img {
+  width: 110px;
+  max-width: none;
+  height: auto;
+}
+
+/* ===== Logos Parceiras ===== */
+
+.logo-parceira {
+  position: absolute;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-parceira img {
+  width: 150px;
+  height: 150px;
+  max-width: none;
+  object-fit: contain;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 14px;
+  transition: transform .25s ease, border-color .25s ease;
+}
+
+.logo-parceira img:hover {
+  transform: scale(1.05);
+  border-color: var(--primary);
+}
+
+.logo-parceira span {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -.01em;
+}
+
+:root {
+  --r: 250px;
+}
+
+.p1 {
+  top: calc(50% - var(--r) * cos(0deg));
+  left: calc(50% + var(--r) * sin(0deg));
+  transform: translate(-50%, -50%);
+}
+.p2 {
+  top: calc(50% - var(--r) * cos(72deg));
+  left: calc(50% + var(--r) * sin(72deg));
+  transform: translate(-50%, -50%);
+}
+.p3 {
+  top: calc(50% - var(--r) * cos(144deg));
+  left: calc(50% + var(--r) * sin(144deg));
+  transform: translate(-50%, -50%);
+}
+.p4 {
+  top: calc(50% - var(--r) * cos(216deg));
+  left: calc(50% + var(--r) * sin(216deg));
+  transform: translate(-50%, -50%);
+}
+.p5 {
+  top: calc(50% - var(--r) * cos(288deg));
+  left: calc(50% + var(--r) * sin(288deg));
+  transform: translate(-50%, -50%);
+}
+
+/* ===== Responsividade ===== */
+
+@media (max-width: 900px) {
+  .rede-parcerias {
+    width: 400px;
+    height: 400px;
+  }
+
+  :root {
+    --r: 170px;
+  }
+
+  .logo-central {
+    width: 130px;
+    height: 130px;
+  }
+
+  .logo-central img {
+    width: 80px;
+  }
+
+  .logo-parceira {
+    width: 130px;
+  }
+
+  .logo-parceira img {
+    width: 110px;
+    height: 110px;
+    padding: 14px;
+  }
+
+  .logo-parceira span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .rede-parcerias {
+    width: 300px;
+    height: 300px;
+  }
+
+  :root {
+    --r: 120px;
+  }
+
+  .logo-central {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-central img {
+    width: 62px;
+  }
+
+  .logo-parceira {
+    width: 100px;
+  }
+
+  .logo-parceira img {
+    width: 85px;
+    height: 85px;
+    padding: 10px;
+  }
+
+  .logo-parceira span {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rede-parcerias {
+    width: 250px;
+    height: 250px;
+  }
+
+  :root {
+    --r: 95px;
+  }
+
+  .logo-central {
+    width: 85px;
+    height: 85px;
+  }
+
+  .logo-central img {
+    width: 52px;
+  }
+
+  .logo-parceira {
+    width: 85px;
+  }
+
+  .logo-parceira img {
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+  }
+
+  .logo-parceira span {
+    font-size: 10px;
+  }
+}
+
 section#noticias div.news-carousel{
   display: flex !important;
   flex-direction: row !important;
