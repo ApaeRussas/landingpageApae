@@ -34,6 +34,7 @@
   color: var(--primary);
 }
 
+/* Título igual ao padrão das outras seções */
 .parcerias .section-title {
   margin: 0 0 6px;
   font-family: "Manrope", sans-serif;
@@ -61,207 +62,319 @@
   font-size: 14px;
 }
 
-/* ===== Rede de Parcerias ===== */
+/* ========================================
+   FAIXA DE APOIADORES
+   Visual limpo e minimalista
+======================================== */
 
 .rede-parcerias {
   position: relative;
-  width: 600px;
+  width: min(1080px, 100%);
   max-width: 100%;
-  height: 600px;
-  margin: 70px auto 0;
-}
-
-/* ===== Logo Central ===== */
-
-.logo-central {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
+  margin: 58px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
   align-items: center;
-  justify-content: center;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: var(--primary-light);
-  z-index: 10;
+  justify-items: center;
+  gap: 30px;
 }
 
-.logo-central img {
-  width: 110px;
-  max-width: none;
-  height: auto;
+/* Não usar mais a composição circular antiga */
+.rede-parcerias::before,
+.rede-parcerias::after {
+  display: none;
 }
 
-/* ===== Logos Parceiras ===== */
+/* A logo da APAE fica fora da faixa de apoiadores */
+.logo-central {
+  display: none;
+}
 
+/* Cada apoiador */
 .logo-parceira {
-  position: absolute;
-  width: 180px;
+  position: relative;
+  width: 100%;
+  min-height: 120px;
+  padding: 8px 10px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
   text-align: center;
+
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+
+  transition:
+    transform .25s ease,
+    opacity .25s ease;
 }
 
+.logo-parceira::before,
+.logo-parceira::after {
+  display: none;
+}
+
+.logo-parceira:hover {
+  transform: translateY(-4px);
+  border: 0;
+  box-shadow: none;
+}
+
+/* Logos */
 .logo-parceira img {
-  width: 150px;
-  height: 150px;
-  max-width: none;
+  width: 145px;
+  height: 82px;
+  max-width: 100%;
+
   object-fit: contain;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  padding: 20px;
-  margin-bottom: 14px;
-  transition: transform .25s ease, border-color .25s ease;
+
+  padding: 0;
+  margin: 0 0 11px;
+
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+
+  transition:
+    transform .25s ease,
+    opacity .25s ease;
 }
 
 .logo-parceira img:hover {
-  transform: scale(1.05);
-  border-color: var(--primary);
+  transform: scale(1.04);
+  border-color: transparent;
 }
 
+/* Nome */
 .logo-parceira span {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text);
+  display: block;
+  max-width: 180px;
+
+  color: var(--muted);
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  line-height: 1.35;
+  font-weight: 600;
   letter-spacing: -.01em;
+
+  text-align: center;
+
+  transition: color .2s ease;
 }
 
-:root {
-  --r: 250px;
+.logo-parceira:hover span {
+  color: var(--primary);
+}
+
+/* ========================================
+   POSICIONAMENTO DOS APOIADORES
+======================================== */
+
+.p1,
+.p2,
+.p3,
+.p4,
+.p5 {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  transform: none;
 }
 
 .p1 {
-  top: calc(50% - var(--r) * cos(0deg));
-  left: calc(50% + var(--r) * sin(0deg));
-  transform: translate(-50%, -50%);
-}
-.p2 {
-  top: calc(50% - var(--r) * cos(72deg));
-  left: calc(50% + var(--r) * sin(72deg));
-  transform: translate(-50%, -50%);
-}
-.p3 {
-  top: calc(50% - var(--r) * cos(144deg));
-  left: calc(50% + var(--r) * sin(144deg));
-  transform: translate(-50%, -50%);
-}
-.p4 {
-  top: calc(50% - var(--r) * cos(216deg));
-  left: calc(50% + var(--r) * sin(216deg));
-  transform: translate(-50%, -50%);
-}
-.p5 {
-  top: calc(50% - var(--r) * cos(288deg));
-  left: calc(50% + var(--r) * sin(288deg));
-  transform: translate(-50%, -50%);
+  grid-column: 1;
+  grid-row: 1;
 }
 
-/* ===== Responsividade ===== */
+.p2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.p3 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.p4 {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.p5 {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+/* ========================================
+   MODO ESCURO
+======================================== */
+
+[data-theme="dark"] .parcerias {
+  background: var(--paper);
+}
+
+[data-theme="dark"] .logo-parceira img {
+  background: transparent;
+}
+
+[data-theme="dark"] .logo-parceira span {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .logo-parceira:hover span {
+  color: var(--primary);
+}
+
+/* ========================================
+   TABLET
+======================================== */
 
 @media (max-width: 900px) {
+
+  .parcerias {
+    padding: 78px 0;
+  }
+
   .rede-parcerias {
-    width: 400px;
-    height: 400px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 20px;
+    margin-top: 48px;
   }
 
-  :root {
-    --r: 170px;
+  .p1 {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .logo-central {
-    width: 130px;
-    height: 130px;
+  .p2 {
+    grid-column: 2;
+    grid-row: 1;
   }
 
-  .logo-central img {
-    width: 80px;
+  .p3 {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .p4 {
+    grid-column: 1 / 3;
+    grid-row: 2;
+  }
+
+  .p5 {
+    grid-column: 3;
+    grid-row: 2;
   }
 
   .logo-parceira {
-    width: 130px;
+    min-height: 110px;
+  }
+
+  .logo-parceira img {
+    width: 125px;
+    height: 72px;
+  }
+}
+
+/* ========================================
+   CELULAR
+======================================== */
+
+@media (max-width: 600px) {
+
+  .parcerias {
+    padding: 68px 0;
+  }
+
+  .parcerias .section-title {
+    font-size: 34px;
+  }
+
+  .parcerias .section-subtitle {
+    margin-top: 18px;
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  .rede-parcerias {
+    width: 100%;
+    margin-top: 36px;
+    padding: 0 18px;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px 10px;
+  }
+
+  .p1,
+  .p2,
+  .p3,
+  .p4,
+  .p5 {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .p5 {
+    grid-column: 1 / 3;
+  }
+
+  .logo-parceira {
+    min-height: 100px;
+    padding: 5px;
   }
 
   .logo-parceira img {
     width: 110px;
-    height: 110px;
-    padding: 14px;
-  }
-
-  .logo-parceira span {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 600px) {
-  .rede-parcerias {
-    width: 300px;
-    height: 300px;
-  }
-
-  :root {
-    --r: 120px;
-  }
-
-  .logo-central {
-    width: 100px;
-    height: 100px;
-  }
-
-  .logo-central img {
-    width: 62px;
-  }
-
-  .logo-parceira {
-    width: 100px;
-  }
-
-  .logo-parceira img {
-    width: 85px;
-    height: 85px;
-    padding: 10px;
-  }
-
-  .logo-parceira span {
-    font-size: 11px;
-  }
-}
-
-@media (max-width: 480px) {
-  .rede-parcerias {
-    width: 250px;
-    height: 250px;
-  }
-
-  :root {
-    --r: 95px;
-  }
-
-  .logo-central {
-    width: 85px;
-    height: 85px;
-  }
-
-  .logo-central img {
-    width: 52px;
-  }
-
-  .logo-parceira {
-    width: 85px;
-  }
-
-  .logo-parceira img {
-    width: 70px;
-    height: 70px;
-    padding: 8px;
+    height: 62px;
+    margin-bottom: 7px;
   }
 
   .logo-parceira span {
     font-size: 10px;
+  }
+}
+
+/* ========================================
+   CELULARES PEQUENOS
+======================================== */
+
+@media (max-width: 380px) {
+
+  .parcerias {
+    padding: 58px 0;
+  }
+
+  .parcerias .section-title {
+    font-size: 30px;
+  }
+
+  .parcerias .section-subtitle {
+    font-size: 12px;
+  }
+
+  .rede-parcerias {
+    gap: 20px 5px;
+  }
+
+  .logo-parceira img {
+    width: 98px;
+    height: 57px;
+  }
+
+  .logo-parceira span {
+    font-size: 9px;
   }
 }
 
