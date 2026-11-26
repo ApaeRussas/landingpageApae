@@ -51,3 +51,51 @@ if (newsTrack && prevBtn && nextBtn) {
   newsTrack.addEventListener('scroll', updateButtons);
   window.addEventListener('load', updateButtons);
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('header nav');
+
+    if (!menuBtn || !nav) return;
+
+    function fecharMenu() {
+        nav.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.setAttribute('aria-label', 'Abrir menu');
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }
+
+    function abrirMenu() {
+        nav.classList.add('active');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        menuBtn.setAttribute('aria-label', 'Fechar menu');
+        menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    }
+
+    menuBtn.addEventListener('click', function () {
+        if (nav.classList.contains('active')) {
+            fecharMenu();
+        } else {
+            abrirMenu();
+        }
+    });
+
+    nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', fecharMenu);
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!nav.contains(event.target) && !menuBtn.contains(event.target)) {
+            fecharMenu();
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            fecharMenu();
+        }
+    });
+
+    fecharMenu();
+});
